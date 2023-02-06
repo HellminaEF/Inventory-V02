@@ -41,21 +41,21 @@ class Home extends BaseController
 
     public function add_jenis()
     {
-        echo view('admin/add_jenis');
+        echo view('insert/add_jenis');
     }
 
     public function add_Karyawan()
     {
-        echo view('admin/add_karyawan');
+        echo view('insert/add_karyawan');
     }
 
     public function add_divisi()
     {
-        echo view('admin/add_divisi');
+        echo view('insert/add_divisi');
     }
 
     public function jabatan()
     {
-        echo view('insert/jabatan');
+        echo view('admin/jabatan');
     }
 }
