@@ -56,6 +56,6 @@ class Home extends BaseController
 
     public function jabatan()
     {
-        echo view('admin/jabatan');
+        echo view('insert/jabatan');
     }
 }
