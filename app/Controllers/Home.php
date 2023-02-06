@@ -39,6 +39,11 @@ class Home extends BaseController
         echo view('admin/transaksi');
     }
 
+    public function jabatan()
+    {
+        echo view('admin/jabatan');
+    }
+
     public function add_jenis()
     {
         echo view('insert/add_jenis');
@@ -54,8 +59,8 @@ class Home extends BaseController
         echo view('insert/add_divisi');
     }
 
-    public function jabatan()
+    public function add_jabatan()
     {
-        echo view('admin/jabatan');
+        echo view('insert/add_jabatan');
     }
 }

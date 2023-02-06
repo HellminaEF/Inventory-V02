@@ -40,6 +40,7 @@ $routes->get('/add_jenis', 'Home::add_jenis');
 $routes->get('/add_karyawan', 'Home::add_karyawan');
 $routes->get('/add_divisi', 'Home::add_divisi');
 $routes->get('/jabatan', 'Home::jabatan');
+$routes->get('/add_jabatan', 'Home::add_jabatan');
 
 /*
  * --------------------------------------------------------------------
