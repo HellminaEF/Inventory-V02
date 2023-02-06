@@ -28,17 +28,16 @@
                                 <!-- <button class="au-btn-filter">
                                     <i class="zmdi zmdi-filter-list"></i>filters</button> -->
                             </div>
-                            <div class="table-data__tool-right">
-                                <!-- <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                    <select class="js-select2" name="type">
-                                        <option selected="selected"><i class="zmdi zmdi-plus"></i>add item</option>
-                                        <option value="">Tambah Data Satuan</option>
-                                        <option value="">Import Data Barang</option>
-                                    </select>
-                                    <div class="dropDownSelect2"></div>
-                                </div> -->
-                                <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                    add item</button>
+                            <div class="table-data__tool">
+                                <div class="dropdown">
+                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Add Item</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Input Data Satuan</a>
+                                        <a class="dropdown-item" href="#">Import Dari Excel</a>
+                                    </div>
+                                </div>
+
                                 <button class="au-btn au-btn-icon au-btn--green au-btn--small">
                                     Export</button>
                             </div>
