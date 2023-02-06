@@ -90,18 +90,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="copyright">
-                            <span>Copyright &copy; PKL13 <?= date('Y'); ?>. All rights reserved</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
     <!-- END MAIN CONTENT-->
     <!-- END PAGE CONTAINER-->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="copyright">
+                <span>Copyright &copy; PKL13 <?= date('Y'); ?>. All rights reserved</span>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?= $this->endSection(); ?>
