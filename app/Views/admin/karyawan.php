@@ -35,6 +35,7 @@
                                         <th>Jabatan</th>
                                         <th>Status</th>
                                         <th>Keterangan</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,6 +46,19 @@
                                         <td>-</td>
                                         <td>-</td>
                                         <td>-</td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <!-- <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
+                                                    <i class="zmdi zmdi-mail-send"></i>
+                                                </button> -->
+                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <i class="zmdi zmdi-edit"></i>
+                                                </button>
+                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <i class="zmdi zmdi-delete"></i>
+                                                </button>
+                                            </div>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
