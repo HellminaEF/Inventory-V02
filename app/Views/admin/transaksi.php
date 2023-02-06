@@ -24,7 +24,7 @@
                             </div>
                             <div class="table-data__tool-right">
                                 <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                    <i class="zmdi zmdi-plus"></i>add item</button>
+                                    <i class="zmdi zmdi-plus"></i>Browse</button>
                                 <!-- <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                     <select class="js-select2" name="type">
                                         <option selected="selected">Export</option>
@@ -45,11 +45,11 @@
                                                 <span class="au-checkmark"></span>
                                             </label>
                                         </th>
-                                        <th>ID</th>
-                                        <th>-</th>
-                                        <th>-</th>
-                                        <th>-</th>
-                                        <th>-</th>
+                                        <th>ID Trans</th>
+                                        <th>Tanggal Trans</th>
+                                        <th>ID Barang</th>
+                                        <th>Nama Karyawan</th>
+                                        <th>Divisi</th>
                                         <th>-</th>
                                         <th>-</th>
                                     </tr>
@@ -96,13 +96,13 @@
                         <!-- END DATA TABLE -->
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="copyright">
-                            <span>Copyright &copy; PKL13 <?= date('Y'); ?>. All rights reserved</span>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="copyright">
+                <span>Copyright &copy; PKL13 <?= date('Y'); ?>. All rights reserved</span>
             </div>
         </div>
     </div>
