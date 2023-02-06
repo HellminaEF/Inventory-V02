@@ -88,7 +88,7 @@
                                                 <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                     <i class="zmdi zmdi-edit"></i>
                                                 </button>
-                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <button class="item" type="button" data-toggle="modal" data-target="#myModal" data-placement="top" title="Delete">
                                                     <i class="zmdi zmdi-delete"></i>
                                                 </button>
                                                 <button class="item" data-toggle="tooltip" data-placement="top" title="More">
@@ -103,6 +103,26 @@
                         </div>
                         <!-- END DATA TABLE -->
                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Anda yakin akan menghapus data ini?</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
                 </div>
             </div>
         </div>
