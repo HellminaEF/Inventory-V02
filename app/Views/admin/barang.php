@@ -33,7 +33,7 @@
                                     <button class="au-btn au-btn-icon au-btn--green au-btn--small dropdown-toggle" type="button" data-toggle="dropdown">
                                         Add Item</button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Input Data Satuan</a>
+                                        <a class="dropdown-item" href="<?= base_url('add_barang') ?>">Input Data Satuan</a>
                                         <a class="dropdown-item" href="#">Import Dari Excel</a>
                                     </div>
                                 </div>
@@ -43,32 +43,20 @@
                             </div>
                         </div>
                         <div class="table-responsive table-responsive-data2">
-                            <table class="table table-data2">
+                            <table class="table table-data2 table-condensed" style="border-collapse:collapse;">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            <label class="au-checkbox">
-                                                <input type="checkbox">
-                                                <span class="au-checkmark"></span>
-                                            </label>
-                                        </th>
                                         <th>ID Barang</th>
                                         <th>Nama Barang</th>
-                                        <th>Tanggal Peroleh</th>
-                                        <th>Tanggal Masa Guna</th>
                                         <th>Merk</th>
                                         <th>Jenis Barang</th>
+                                        <th>Tanggal Peroleh</th>
+                                        <th>Tanggal Masa Guna</th>
                                         <!-- <th></th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="tr-shadow">
-                                        <td>
-                                            <label class="au-checkbox">
-                                                <input type="checkbox">
-                                                <span class="au-checkmark"></span>
-                                            </label>
-                                        </td>
+                                    <tr class="tr-shadow accordion-toggle" data-toggle="collapse" data-target="#demo1">
                                         <td>-</td>
                                         <td>
                                             <span>-</span>
@@ -94,6 +82,11 @@
                                                     <i class="zmdi zmdi-more"></i>
                                                 </button>
                                             </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="8" class="hiddenRow">
+                                            <div class="accordian-body collapse" id="demo1"> Sebegai pembeda antara tiap jenis barang </div>
                                         </td>
                                     </tr>
                                     <tr class="spacer"></tr>
