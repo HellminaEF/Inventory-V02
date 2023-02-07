@@ -29,7 +29,7 @@
                                     <i class="zmdi zmdi-filter-list"></i>filters</button> -->
                             </div>
                             <div class="table-data__tool">
-                                <div class="dropdown">
+                                <div class="dropdown rs-select2--md">
                                     <button class="au-btn au-btn-icon au-btn--green au-btn--small dropdown-toggle" type="button" data-toggle="dropdown">
                                         Add Item</button>
                                     <div class="dropdown-menu">
