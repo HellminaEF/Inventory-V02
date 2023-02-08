@@ -57,13 +57,13 @@
                         <!-- END DATA TABLE-->
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="copyright">
-                            <span>Copyright &copy; PKL13 <?= date('Y'); ?>. All rights reserved</span>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="copyright">
+                <span>Copyright &copy; PKL13 2022. All rights reserved</span>
             </div>
         </div>
     </div>
