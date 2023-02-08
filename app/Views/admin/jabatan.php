@@ -59,6 +59,21 @@
                 </div>
             </div>
         </div>
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <h4 class="modal-title">Anda yakin akan menghapus data ini?</h4>
+                        <hr>
+                        <button type="button" class="btn btn-danger float-right" data-dismiss="modal">Delete</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-12">
