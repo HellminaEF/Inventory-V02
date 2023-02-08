@@ -23,18 +23,18 @@
                                     <i class="zmdi zmdi-filter-list"></i>filters</button> -->
                             </div>
                             <!-- Trigger the modal with a button -->
-                            <button type="button" class="btn btn-info btn-lg au-btn--small" data-toggle="modal" data-target="#myModal">Browse</button>
+                            <button type="button" class="btn btn-success btn-lg au-btn--small" data-toggle="modal" data-target="#myModal">Browse</button>
                         </div>
                         <div class="table-responsive table-responsive-data2">
                             <table class="table table-data2">
                                 <thead>
                                     <tr>
-                                        <th>
+                                        <!-- <th>
                                             <label class="au-checkbox">
                                                 <input type="checkbox">
                                                 <span class="au-checkmark"></span>
                                             </label>
-                                        </th>
+                                        </th> -->
                                         <th>ID Trans</th>
                                         <th>Tanggal Trans</th>
                                         <th>ID Barang</th>
@@ -46,12 +46,12 @@
                                 </thead>
                                 <tbody>
                                     <tr class="tr-shadow">
-                                        <td>
+                                        <!-- <td>
                                             <label class="au-checkbox">
                                                 <input type="checkbox">
                                                 <span class="au-checkmark"></span>
                                             </label>
-                                        </td>
+                                        </td> -->
                                         <td>-</td>
                                         <td>
                                             <span>-</span>
