@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="form-control">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header bg-secondary text-white">
                                 <a type="button" class="btn btn-secondary btn-sm" href="<?= base_url('jenis') ?>"><- Back</a>
                                         Tambah <strong>Data Jenis</strong>
                             </div>
