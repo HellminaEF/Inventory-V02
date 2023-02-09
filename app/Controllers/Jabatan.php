@@ -25,4 +25,25 @@ class Jabatan extends BaseController
 
         return view('admin/jabatan', $data);
     }
+
+    public function add_jabatan()
+    {
+        $data = [
+            'title' => 'Form Tambah Jabatan'
+        ];
+
+        return view('insert/add_jabatan', $data);
+    }
+
+    public function save_jabatan()
+    {
+        $this->JabatanModel->save([
+            'jabatan' => $this->request->getVar('jabatan'),
+            'ket' => $this->request->getVar('ket')
+        ]);
+
+        session()->setFlashdata('Pesan', 'Jabatan berhasil ditambahkan.');
+
+        return redirect()->to('/jabatan');
+    }
 }
