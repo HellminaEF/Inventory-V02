@@ -36,21 +36,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>
-                                            <div class="table-data-feature">
-                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                    <i class="zmdi zmdi-edit"></i>
-                                                </button>
-                                                <button class="item" type="button" data-toggle="modal" data-target="#myModal" data-placement="top" title="Delete">
-                                                    <i class="zmdi zmdi-delete"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <?php foreach ($jabatan as $J) : ?>
+                                        <tr>
+                                            <td scope="row">1</td>
+                                            <td><?= $J['jabatan']; ?></td>
+                                            <td><?= $J['ket']; ?></td>
+                                            <td>
+                                                <div class="table-data-feature">
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <i class="zmdi zmdi-edit"></i>
+                                                    </button>
+                                                    <button class="item" type="button" data-toggle="modal" data-target="#myModal" data-placement="top" title="Delete">
+                                                        <i class="zmdi zmdi-delete"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
