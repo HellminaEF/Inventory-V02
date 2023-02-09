@@ -25,4 +25,25 @@ class Divisi extends BaseController
 
         return view('admin/divisi', $data);
     }
+
+    public function add_divisi()
+    {
+        $data = [
+            'title' => 'Form Tambah Divisi'
+        ];
+
+        return view('insert/add_divisi', $data);
+    }
+
+    public function save_divisi()
+    {
+        $this->DivisiModel->save([
+            'divisi' => $this->request->getVar('divisi'),
+            'ket' => $this->request->getVar('ket')
+        ]);
+
+        session()->setFlashdata('Pesan', 'Divisi berhasil ditambahkan.');
+
+        return redirect()->to('/divisi');
+    }
 }
