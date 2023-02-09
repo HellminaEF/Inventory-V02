@@ -17,13 +17,14 @@
                                         Tambah <strong>Divisi</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="" method="post" class="form-horizontal">
+                                <form action="<?= base_url('save_divisi') ?>" method="post" class="form-horizontal">
+                                    <?= csrf_field(); ?>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="id" class=" form-control-label">ID Divisi</label>
+                                            <label for="id_divisi" class=" form-control-label">ID Divisi</label>
                                         </div>
                                         <div class="form-group col-md-9">
-                                            <input type="text" id="id" name="id" class="form-control" required="required">
+                                            <input type="text" id="id_divisi" name="id_divisi" class="form-control" required="required" autofocus>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -42,20 +43,22 @@
                                             <input type="text" id="ket" name="ket" class="form-control" required="required">
                                         </div>
                                     </div>
-                                </form>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Submit
-                                </button>
+                                <div class="col-sm-10">
+                                    <button type="Submit" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-dot-circle-o"></i> Submit
+                                    </button>
+                                </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="copyright">
-                            <span>Copyright &copy; PKL13 2022. All rights reserved</span>
+                            <span>Copyright &copy; <?= date('Y'); ?>. All rights reserved</span>
                         </div>
                     </div>
                 </div>
