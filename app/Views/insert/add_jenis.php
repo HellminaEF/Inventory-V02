@@ -17,18 +17,19 @@
                                         Tambah <strong>Data Jenis</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="" method="post" class="form-horizontal">
+                                <form action="<?= base_url('save_jenis') ?>" method="post" class="form-horizontal">
+                                    <?= csrf_field(); ?>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="id" class=" form-control-label">ID Jenis Barang</label>
+                                            <label for="id_jenis" class="form-control-label">ID Jenis Barang</label>
                                         </div>
                                         <div class="form-group col-md-9">
-                                            <input type="text" id="id" name="id" class="form-control" required="required">
+                                            <input type="text" id="id_jenis" name="id_jenis" class="form-control" required="required" autofocus>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="jenis" class=" form-control-label">Jenis Barang</label>
+                                            <label for="jenis" class="form-control-label">Jenis Barang</label>
                                         </div>
                                         <div class="form-group col-md-9">
                                             <input type="text" id="jenis" name="jenis" class="form-control" required="required">
@@ -36,19 +37,21 @@
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="ket" class=" form-control-label">Keterangan</label>
+                                            <label for="ket" class="form-control-label">Keterangan</label>
                                         </div>
                                         <div class="form-group col-md-9">
                                             <input type="text" id="ket" name="ket" class="form-control" required="required">
                                         </div>
                                     </div>
-                                </form>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Submit
-                                </button>
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-dot-circle-o"></i> Submit
+                                    </button>
+                                </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
