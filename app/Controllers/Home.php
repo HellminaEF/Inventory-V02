@@ -6,61 +6,102 @@ class Home extends BaseController
 {
     public function index()
     {
-        echo view('auth/login');
+        return view('auth/login');
     }
 
     public function admin()
     {
-        echo view('admin/index');
+        $data = [
+            'title' => 'Dashboard | USSI Inventory'
+        ];
+        return view('admin/index', $data);
     }
 
     public function jenis()
     {
-        echo view('admin/jenis');
+        $data = [
+            'title' => 'Jenis Barang'
+        ];
+        return view('admin/jenis', $data);
     }
 
     public function divisi()
     {
-        echo view('admin/divisi');
+        $data = [
+            'title' => 'Divisi'
+        ];
+        return view('admin/divisi', $data);
     }
 
     public function karyawan()
     {
-        echo view('admin/karyawan');
+        $data = [
+            'title' => 'Karyawan'
+        ];
+        echo view('admin/karyawan', $data);
     }
 
     public function barang()
     {
-        echo view('admin/barang');
+        $data = [
+            'title' => 'Barang Inventaris'
+        ];
+        echo view('admin/barang', $data);
     }
 
     public function transaksi()
     {
-        echo view('admin/transaksi');
+        $data = [
+            'title' => 'Transaksi Inventaris'
+        ];
+        echo view('admin/transaksi', $data);
     }
 
     public function jabatan()
     {
-        echo view('admin/jabatan');
+        $data = [
+            'title' => 'Jabatan'
+        ];
+        echo view('admin/jabatan', $data);
     }
 
     public function add_jenis()
     {
-        echo view('insert/add_jenis');
+        $data = [
+            'title' => 'Tambah Jenis Barang'
+        ];
+        echo view('insert/add_jenis', $data);
     }
 
     public function add_Karyawan()
     {
-        echo view('insert/add_karyawan');
+        $data = [
+            'title' => 'Tambah Karyawan'
+        ];
+        echo view('insert/add_karyawan', $data);
     }
 
     public function add_divisi()
     {
-        echo view('insert/add_divisi');
+        $data = [
+            'title' => 'Tambah Divisi'
+        ];
+        echo view('insert/add_divisi', $data);
     }
 
     public function add_jabatan()
     {
-        echo view('insert/add_jabatan');
+        $data = [
+            'title' => 'Tambah Jabatan'
+        ];
+        echo view('insert/add_jabatan', $data);
+    }
+
+    public function add_barang()
+    {
+        $data = [
+            'title' => 'Tambah Barang'
+        ];
+        echo view('insert/add_barang', $data);
     }
 }
