@@ -22,6 +22,11 @@
                         <!-- END DATA TABLE -->
                     </div>
                 </div>
+                <?php if (session()->getFlashdata('berhasil')) : ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= session()->getFlashdata('berhasil'); ?>
+                    </div>
+                <?php endif; ?>
                 <div class="row m-t-30">
                     <div class="col-md-12">
                         <!-- DATA TABLE-->
@@ -36,9 +41,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $i = 1; ?>
                                     <?php foreach ($jabatan as $J) : ?>
                                         <tr>
-                                            <td scope="row">1</td>
+                                            <td scope="row"><?= $i++; ?></td>
                                             <td><?= $J['jabatan']; ?></td>
                                             <td><?= $J['ket']; ?></td>
                                             <td>

@@ -15,13 +15,18 @@
                         <h3 class="title-5 m-b-35">Data Divisi</h3>
                         <div class="table-data__tool">
                             <div class="table-data__tool-right">
-                                <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="<?= base_url('add_divisi') ?>">
+                                <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="/divisi/add_divisi">
                                     <i class="zmdi zmdi-plus"></i>Tambah Data Divisi</a>
                             </div>
                         </div>
                         <!-- END DATA TABLE -->
                     </div>
                 </div>
+                <?php if (session()->getFlashdata('berhasil')) : ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= session()->getFlashdata('berhasil'); ?>
+                    </div>
+                <?php endif; ?>
                 <div class="row m-t-30">
                     <div class="col-md-12">
                         <!-- DATA TABLE-->
@@ -36,17 +41,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $i = 1; ?>
                                     <?php foreach ($divisi as $D) : ?>
                                         <tr>
-                                            <td scope="row">1</td>
+                                            <td scope="row"><?= $i++; ?></td>
                                             <td><?= $D['divisi']; ?></td>
                                             <td><?= $D['ket']; ?></td>
                                             <td>
                                                 <div class="table-data-feature">
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <button class="item" title="Edit" href="">
                                                         <i class="zmdi zmdi-edit"></i>
                                                     </button>
-                                                    <button class="item" type="button" data-toggle="modal" data-target="#myModal" data-placement="top" title="Delete">
+
+                                                    <button class="item" type="button" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
                                                     </button>
                                                 </div>
