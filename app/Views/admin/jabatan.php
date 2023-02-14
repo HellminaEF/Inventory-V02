@@ -15,7 +15,7 @@
                         <h3 class="title-5 m-b-35">Data Jabatan</h3>
                         <div class="table-data__tool">
                             <div class="table-data__tool-right">
-                                <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="<?= base_url('add_jabatan') ?>">
+                                <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="/jabatan/add_jabatan">
                                     <i class="zmdi zmdi-plus"></i>Tambah Data Jabatan</a>
                             </div>
                         </div>
@@ -23,7 +23,8 @@
                     </div>
                 </div>
                 <?php if (session()->getFlashdata('berhasil')) : ?>
-                    <div class="alert alert-success" role="alert">
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
                         <?= session()->getFlashdata('berhasil'); ?>
                     </div>
                 <?php endif; ?>
@@ -86,7 +87,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="copyright">
-                <span>Copyright &copy; PKL13 2022. All rights reserved</span>
+                <span>Copyright &copy; PKL13 <?= date('Y'); ?>. All rights reserved</span>
             </div>
         </div>
     </div>
