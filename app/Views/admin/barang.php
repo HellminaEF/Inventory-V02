@@ -15,12 +15,12 @@
                         <h3 class="title-5 m-b-35">Data Barang Inventaris</h3>
                         <div class="table-data__tool">
                             <div class="table-data__tool-left">
-                                <div class="rs-select2--light rs-select2--md">
+                                <!-- <div class="rs-select2--light rs-select2--md">
                                     <select class="js-select2" name="property">
                                         <option selected="selected">Jenis Barang</option>
                                     </select>
                                     <div class="dropDownSelect2"></div>
-                                </div>
+                                </div> -->
                                 <div class="rs-select2--light rs-select2--md">
                                     <input type="date" class="form-control" placeholder="Start" name="date1" />
                                     <div class="dropDownSelect2"></div>
@@ -29,11 +29,11 @@
                                     <i class="zmdi zmdi-filter-list"></i>filters</button> -->
                             </div>
                             <div class="table-data__tool">
-                                <div class="dropdown rs-select2--md">
+                                <div class="dropdown m-r-5">
                                     <button class="au-btn au-btn-icon au-btn--green au-btn--small dropdown-toggle" type="button" data-toggle="dropdown">
                                         Add Item</button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="<?= base_url('add_barang') ?>">Input Data Satuan</a>
+                                        <a class="dropdown-item" href="/barang/add_barang">Input Data Satuan</a>
                                         <a class="dropdown-item" href="#">Import Dari Excel</a>
                                     </div>
                                 </div>
@@ -42,6 +42,12 @@
                                     Export</button>
                             </div>
                         </div>
+                        <?php if (session()->getFlashdata('berhasil')) : ?>
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <?= session()->getFlashdata('berhasil'); ?>
+                            </div>
+                        <?php endif; ?>
                         <div class="table-responsive table-responsive-data2">
                             <table class="table table-data2 table-condensed" style="border-collapse:collapse;">
                                 <thead>
@@ -51,45 +57,40 @@
                                         <th>Merk</th>
                                         <th>Jenis Barang</th>
                                         <th>Tanggal Peroleh</th>
-                                        <th>Tanggal Masa Guna</th>
-                                        <!-- <th></th> -->
+                                        <th>Masa Guna</th>
+                                        <th>Harga</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="tr-shadow accordion-toggle" data-toggle="collapse" data-target="#demo1">
-                                        <td>-</td>
-                                        <td>
-                                            <span>-</span>
-                                        </td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>
-                                            <span>-</span>
-                                        </td>
-                                        <td>-</td>
-                                        <td>
-                                            <div class="table-data-feature">
-                                                <!-- <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($barang as $B) : ?>
+                                        <tr class="tr-shadow accordion-toggle" data-toggle="collapse" data-target="#demo1">
+                                            <td scope="row"><?= $i++; ?></td>
+                                            <td><?= $B['barang']; ?></td>
+                                            <td><?= $B['merk']; ?></td>
+                                            <td><?= $B['id_jenis']; ?></td>
+                                            <td><?= $B['tperoleh']; ?></td>
+                                            <td><?= $B['masa_guna']; ?></td>
+                                            <td>RP <?= $B['harga']; ?></td>
+                                            <td>
+                                                <div class="table-data-feature">
+                                                    <!-- <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
                                                     <i class="zmdi zmdi-mail-send"></i>
                                                 </button> -->
-                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                    <i class="zmdi zmdi-edit"></i>
-                                                </button>
-                                                <button class="item" type="button" data-toggle="modal" data-target="#myModal" data-placement="top" title="Delete">
-                                                    <i class="zmdi zmdi-delete"></i>
-                                                </button>
-                                                <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                    <i class="zmdi zmdi-more"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="8" class="hiddenRow">
-                                            <div class="accordian-body collapse" id="demo1"> Sebegai pembeda antara tiap jenis barang </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="spacer"></tr>
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <i class="zmdi zmdi-edit"></i>
+                                                    </button>
+                                                    <button class="item" type="button" data-toggle="modal" data-target="#myModal" data-placement="top" title="Delete">
+                                                        <i class="zmdi zmdi-delete"></i>
+                                                    </button>
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Detail">
+                                                        <i class="zmdi zmdi-info"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="spacer"></tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -103,16 +104,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Anda yakin akan menghapus data ini?</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <h4 class="modal-title">Anda yakin akan menghapus data ini?</h4>
+                        <hr>
+                        <button type="button" class="btn btn-danger float-right" data-dismiss="modal">Delete</button>
                     </div>
 
                 </div>
