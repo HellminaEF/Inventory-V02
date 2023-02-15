@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login</title>
+    <title>Login | USSI Inventory</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -32,13 +32,14 @@
                     <img src="images/icon/8.png" alt="IMG">
                 </div> -->
 
-                <form class="login100-form validate-form">
+                <form action="<?= url_to('login') ?>" method="post" class="login100-form validate-form">
+                    <?= csrf_field() ?>
                     <span class="login100-form-title">
                         USSI Inventory
                     </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Username is required">
-                        <input class="input100" type="text" name="username" placeholder="Username">
+                        <input class="input100 <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" type="text" name="username" placeholder="<?= lang('Auth.username') ?>" value="<?= old('username') ?>">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -46,18 +47,23 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="pass" placeholder="Password">
+                        <input class="input100 <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" type="password" name="pass" placeholder="<?= lang('Auth.password') ?>">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
                         </span>
                     </div>
 
-                    <div class="container-login100-form-btn" href="<?= base_url('admin') ?>">
-                        <button class="login100-form-btn">
-                            Login
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" type="submit">
+                            <?= lang('Auth.loginAction') ?>
                         </button>
                     </div>
+                    <hr>
+
+					<?php if ($config->allowRegistration) : ?>
+						<p class="text-center"><a href="<?= url_to('register') ?>"><?= lang('Auth.needAnAccount') ?></a></p>
+					<?php endif; ?>
 
                     <div class="text-center p-t-127">
                         <span>Copyright &copy; PKL13 <?= date('Y'); ?></span>
