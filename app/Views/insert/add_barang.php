@@ -10,20 +10,20 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="form-control">
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header bg-secondary text-white">
                                 <a type="button" class="btn btn-secondary btn-sm mr-3" href="/barang/barang"><- Back</a>
                                         Tambah <strong>Barang</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="<?= base_url('save_barang') ?>" method="post" class="form-horizontal">
+                                <form action="/barang/save" method="post" class="form-horizontal">
                                     <?= csrf_field(); ?>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="id_barang" class=" form-control-label">ID Barang</label>
                                         </div>
-                                        <div class="form-group col-md-9">
+                                        <div class="form-group col-md-7">
                                             <input type="text" id="id_barang" name="id_barang" class="form-control">
                                         </div>
                                     </div>
@@ -31,7 +31,7 @@
                                         <div class="col col-md-3">
                                             <label for="barang" class=" form-control-label">Nama Barang</label>
                                         </div>
-                                        <div class="form-group col-md-9">
+                                        <div class="form-group col-md-7">
                                             <input type="text" id="barang" name="barang" class="form-control" required="required" autofocus>
                                         </div>
                                     </div>
@@ -39,7 +39,7 @@
                                         <div class="col col-md-3">
                                             <label for="merk" class=" form-control-label">Merk</label>
                                         </div>
-                                        <div class="form-group col-md-9">
+                                        <div class="form-group col-md-7">
                                             <input type="text" id="merk" name="merk" class="form-control" required="required">
                                         </div>
                                     </div>
@@ -47,7 +47,7 @@
                                         <div class="col col-md-3">
                                             <label for="id_jenis" class=" form-control-label">Jenis Barang</label>
                                         </div>
-                                        <div class="form-group col-md-9">
+                                        <div class="form-group col-md-7">
                                             <input type="text" id="id_jenis" name="id_jenis" class="form-control" required="required">
                                         </div>
                                     </div>
@@ -55,15 +55,15 @@
                                         <div class="col col-md-3">
                                             <label for="tperoleh" class=" form-control-label">Tanggal Peroleh</label>
                                         </div>
-                                        <div class="form-group col-md-9">
+                                        <div class="form-group col-md-7">
                                             <input type="date" id="tperoleh" name="tperoleh" class="form-control" required="required">
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="masa_guna" class=" form-control-label">Masa Guna</label>
+                                            <label for="masa_guna" class=" form-control-label">Masa Guna (bulan)</label>
                                         </div>
-                                        <div class="form-group col-md-9">
+                                        <div class="form-group col-md-7">
                                             <input type="text" id="masa_guna" name="masa_guna" class="form-control" required="required">
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@
                                         <div class="col col-md-3">
                                             <label for="harga" class=" form-control-label">Harga</label>
                                         </div>
-                                        <div class="form-group col-md-9">
+                                        <div class="form-group col-md-7">
                                             <input type="text" id="harga" name="harga" class="form-control" required="required">
                                         </div>
                                     </div>
