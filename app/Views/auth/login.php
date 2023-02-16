@@ -61,9 +61,9 @@
                     </div>
                     <hr>
 
-					<?php if ($config->allowRegistration) : ?>
-						<p class="text-center"><a href="<?= url_to('register') ?>"><?= lang('Auth.needAnAccount') ?></a></p>
-					<?php endif; ?>
+                    <?php if ($config->allowRegistration) : ?>
+                        <p class="text-center"><a href="<?= url_to('register') ?>"><?= lang('Auth.needAnAccount') ?></a></p>
+                    <?php endif; ?>
 
                     <div class="text-center p-t-127">
                         <span>Copyright &copy; PKL13 <?= date('Y'); ?></span>
