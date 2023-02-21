@@ -13,6 +13,7 @@
                     <div class="col-md-12">
                         <!-- DATA TABLE -->
                         <h3 class="title-5 m-b-35">Data Jabatan</h3>
+                        <hr>
                         <div class="table-data__tool">
                             <div class="table-data__tool-right">
                                 <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="/jabatan/add_jabatan">
@@ -28,6 +29,12 @@
                         <?= session()->getFlashdata('berhasil'); ?>
                     </div>
                 <?php endif; ?>
+                <?php if (session()->getFlashdata('delete')) : ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?= session()->getFlashdata('delete'); ?>
+                    </div>
+                <?php endif; ?>
                 <div class="row m-t-30">
                     <div class="col-md-12">
                         <!-- DATA TABLE-->
@@ -37,25 +44,23 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Jabatan</th>
-                                        <th>Keterangan</th>
-                                        <th></th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    <?php foreach ($jabatan as $J) : ?>
+                                    <?php foreach ($jabatan as $row) : ?>
                                         <tr>
                                             <td scope="row"><?= $i++; ?></td>
-                                            <td><?= $J['jabatan']; ?></td>
-                                            <td><?= $J['ket']; ?></td>
+                                            <td><?= $row->jabatan; ?></td>
                                             <td>
                                                 <div class="table-data-feature">
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("jabatan/edit_jabatan/$row->id_jabatan") ?>">
                                                         <i class="zmdi zmdi-edit"></i>
-                                                    </button>
-                                                    <button class="item" type="button" data-toggle="modal" data-target="#myModal" data-placement="top" title="Delete">
+                                                    </a>
+                                                    <a class="item" data-toggle="tooltip" href="<?= base_url("jabatan/delete/$row->id_jabatan") ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini ?')" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
-                                                    </button>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -68,21 +73,7 @@
                 </div>
             </div>
         </div>
-        <!-- The Modal -->
-        <div class="modal" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <h4 class="modal-title">Anda yakin akan menghapus data ini?</h4>
-                        <hr>
-                        <button type="button" class="btn btn-danger float-right" data-dismiss="modal">Delete</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
     </div>
     <div class="row">
         <div class="col-md-12">
