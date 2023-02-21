@@ -15,11 +15,11 @@ class Jenis extends BaseController
     public function jenis()
     {
 
-        $Jenis = $this->JenisModel->findAll();
+        $jenis = $this->JenisModel->findAll();
 
         $data = [
             'title' => 'Jenis',
-            'jenis' => $Jenis
+            'jenis' => $jenis
         ];
 
         return view('admin/jenis', $data);
@@ -70,7 +70,7 @@ class Jenis extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Jenis Tidak ditemukan !');
         }
         $this->JenisModel->delete($id_jenis);
-        session()->setFlashdata('delete', 'Delete Data Jenis Berhasil');
+        session()->setFlashdata('delete', 'Data Jenis Berhasil Dihapus');
         return redirect()->to('/jenis/jenis');
     }
 }

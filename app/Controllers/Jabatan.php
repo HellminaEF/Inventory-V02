@@ -35,15 +35,51 @@ class Jabatan extends BaseController
         return view('insert/add_jabatan', $data);
     }
 
-    public function save_jabatan()
+    public function edit_jabatan()
     {
+        $data = [
+            'title' => 'Edit Jabatan'
+        ];
+
+        return view('edit/edit_jabatan', $data);
+    }
+
+    public function save()
+    {
+        //validasi input
+        if (!$this->validate([
+            'jabatan' => 'required|is_unique[jabatan.jabatan]'
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/jabatan/add_jabatan')->withInput()->with('validation', $validation);
+        }
+
         $this->JabatanModel->save([
             'jabatan' => $this->request->getVar('jabatan'),
             'ket' => $this->request->getVar('ket')
         ]);
 
-        session()->setFlashdata('Pesan', 'Jabatan berhasil ditambahkan.');
+        session()->setFlashdata('berhasil', 'Jabatan berhasil ditambahkan.');
 
-        return redirect()->to('/jabatan');
+        return redirect()->to('/jabatan/jabatan');
+    }
+
+    public function delete($id_jabatan)
+    {
+        /**
+         * model initialize
+         */
+        $jabatanModel = new JabatanModel();
+
+        $jabatan = $jabatanModel->find($id_jabatan);
+
+        if ($jabatan) {
+            $jabatanModel->delete($id_jabatan);
+
+            //flash message
+            session()->setFlashdata('delete', 'Jabatan Berhasil Dihapus');
+
+            return redirect()->to(base_url('jabatan'));
+        }
     }
 }
