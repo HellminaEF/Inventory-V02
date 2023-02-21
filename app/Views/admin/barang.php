@@ -13,14 +13,9 @@
                     <div class="col-md-12">
                         <!-- DATA TABLE -->
                         <h3 class="title-5 m-b-35">Data Barang Inventaris</h3>
+                        <hr>
                         <div class="table-data__tool">
                             <div class="table-data__tool-left">
-                                <!-- <div class="rs-select2--light rs-select2--md">
-                                    <select class="js-select2" name="property">
-                                        <option selected="selected">Jenis Barang</option>
-                                    </select>
-                                    <div class="dropDownSelect2"></div>
-                                </div> -->
                                 <div class="rs-select2--light rs-select2--md">
                                     <input type="date" class="form-control" placeholder="Start" name="date1" />
                                     <div class="dropDownSelect2"></div>
@@ -34,7 +29,7 @@
                                         Add Item</button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="/barang/add_barang">Input Data Satuan</a>
-                                        <a class="dropdown-item" href="#">Import Dari Excel</a>
+                                        <a class="dropdown-item" href="/barang/import_barang">Import Dari Excel</a>
                                     </div>
                                 </div>
 
@@ -63,29 +58,29 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    <?php foreach ($barang as $B) : ?>
+                                    <?php foreach ($barang as $row) : ?>
                                         <tr class="tr-shadow accordion-toggle" data-toggle="collapse" data-target="#demo1">
                                             <td scope="row"><?= $i++; ?></td>
-                                            <td><?= $B['barang']; ?></td>
-                                            <td><?= $B['merk']; ?></td>
-                                            <td><?= $B['id_jenis']; ?></td>
-                                            <td><?= $B['tperoleh']; ?></td>
-                                            <td><?= $B['masa_guna']; ?></td>
-                                            <td>RP <?= $B['harga']; ?></td>
+                                            <td><?= $row->barang; ?></td>
+                                            <td><?= $row->merk; ?></td>
+                                            <td><?= $row->id_jenis; ?></td>
+                                            <td><?= $row->tperoleh; ?></td>
+                                            <td><?= $row->masa_guna; ?> Bulan</td>
+                                            <td>RP <?= $row->harga; ?></td>
                                             <td>
                                                 <div class="table-data-feature">
                                                     <!-- <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
                                                     <i class="zmdi zmdi-mail-send"></i>
                                                 </button> -->
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("barang/edit_barang/$row->id_barang") ?>">
                                                         <i class="zmdi zmdi-edit"></i>
-                                                    </button>
-                                                    <button class="item" type="button" data-toggle="modal" data-target="#myModal" data-placement="top" title="Delete">
+                                                    </a>
+                                                    <a class="item" data-toggle="tooltip" href="<?= base_url("barang/delete/$row->id_barang") ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini ?')" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
-                                                    </button>
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Detail">
+                                                    </a>
+                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Detail" href="/barang/det_barang">
                                                         <i class="zmdi zmdi-info"></i>
-                                                    </button>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>

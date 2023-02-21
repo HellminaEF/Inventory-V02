@@ -13,13 +13,20 @@
                     <div class="col-md-12">
                         <!-- DATA TABLE -->
                         <h3 class="title-5 m-b-35">Data Karyawan</h3>
+                        <hr>
                         <div class="table-data__tool">
                             <div class="table-data__tool-right">
-                                <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="<?= base_url('add_karyawan') ?>">
+                                <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="/karyawan/add_karyawan">
                                     <i class="zmdi zmdi-plus"></i>Tambah Karyawan</a>
                             </div>
                         </div>
                         <!-- END DATA TABLE -->
+                        <?php if (session()->getFlashdata('berhasil')) : ?>
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <?= session()->getFlashdata('berhasil'); ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="row m-t-30">
@@ -39,27 +46,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>
-                                            <div class="table-data-feature">
-                                                <!-- <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($karyawan as $row) : ?>
+                                        <tr>
+                                            <td scope="row"><?= $i++; ?></td>
+                                            <td><?= $row->karyawan; ?></td>
+                                            <td><?= $row->id_divisi; ?></td>
+                                            <td><?= $row->id_jabatan; ?></td>
+                                            <td><?= $row->status; ?></td>
+                                            <td><?= $row->ket; ?></td>
+                                            <td>
+                                                <div class="table-data-feature">
+                                                    <!-- <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
                                                     <i class="zmdi zmdi-mail-send"></i>
                                                 </button> -->
-                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                    <i class="zmdi zmdi-edit"></i>
-                                                </button>
-                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                    <i class="zmdi zmdi-delete"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("karyawan/edit_karyawan/$row->id_karyawan") ?>">
+                                                        <i class="zmdi zmdi-edit"></i>
+                                                    </a>
+                                                    <a class="item" data-toggle="tooltip" href="<?= base_url("karyawan/delete/$row->id_karyawan") ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini ?')" title="Delete">
+                                                        <i class="zmdi zmdi-delete"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
