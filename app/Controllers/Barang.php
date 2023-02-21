@@ -10,6 +10,7 @@ class Barang extends BaseController
     public function __construct()
     {
         $this->BarangModel = new BarangModel();
+        // $this->load->model(['BarangModel', 'JenisModel']);
     }
 
     public function barang()
@@ -29,7 +30,7 @@ class Barang extends BaseController
     public function add_barang()
     {
         $data = [
-            'title' => 'Form Tambah Barang'
+            'title' => 'Form Tambah Barang',
         ];
 
         return view('insert/add_barang', $data);
@@ -42,6 +43,33 @@ class Barang extends BaseController
         ];
 
         return view('insert/desc_barang', $data);
+    }
+
+    public function det_barang()
+    {
+        $data = [
+            'title' => 'Detail Barang'
+        ];
+
+        return view('detail/det_barang', $data);
+    }
+
+    public function edit_barang()
+    {
+        $data = [
+            'title' => 'Edit Barang Inventaris'
+        ];
+
+        return view('edit/edit_barang', $data);
+    }
+
+    public function import_barang()
+    {
+        $data = [
+            'title' => 'Import Barang Inventaris'
+        ];
+
+        return view('insert/import_barang', $data);
     }
 
     public function save()
@@ -65,9 +93,21 @@ class Barang extends BaseController
         return redirect()->to('/barang/barang');
     }
 
-    public function delete($id_barang)
+    function delete($id_barang)
     {
+        $dataBarang = $this->BarangModel->find($id_barang);
+        if (empty($dataBarang)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Barang Tidak ditemukan !');
+        }
         $this->BarangModel->delete($id_barang);
+        session()->setFlashdata('delete', 'Data Barang Berhasil Dihapus');
         return redirect()->to('/barang');
+    }
+
+    public function join()
+    {
+        $model = new BarangModel();
+        $data['barang'] = $model->getBarang();
+        echo view('/barang',$data);
     }
 }

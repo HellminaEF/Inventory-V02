@@ -35,6 +35,15 @@ class Karyawan extends BaseController
         return view('insert/add_karyawan', $data);
     }
 
+    public function edit_karyawan()
+    {
+        $data = [
+            'title' => 'Edit Karyawan'
+        ];
+
+        return view('edit/edit_karyawan', $data);
+    }
+
     public function save_karyawan()
     {
         //validasi input
@@ -55,9 +64,14 @@ class Karyawan extends BaseController
         return redirect()->to('/karyawan');
     }
 
-    public function delete($id_karyawan)
+    function delete($id_karyawan)
     {
+        $dataKaryawan = $this->KaryawanModel->find($id_karyawan);
+        if (empty($dataKaryawan)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Karyawan Tidak ditemukan !');
+        }
         $this->KaryawanModel->delete($id_karyawan);
+        session()->setFlashdata('delete', 'Data Karyawan Berhasil Dihapus');
         return redirect()->to('/karyawan');
     }
 }
