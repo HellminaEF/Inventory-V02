@@ -10,10 +10,10 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="form-control">
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header bg-secondary text-white">
-                                <a type="button" class="btn btn-secondary btn-sm mr-3" href="/jabatan/jabatan"><- Back</a>
+                                <a type="button" class="btn btn-secondary btn-sm mr-3" href="/jabatan/jabatan"><i class="fas fa-reply"></i> Back</a>
                                         Tambah <strong>Jabatan</strong>
                             </div>
                             <div class="card-body card-block">
@@ -23,15 +23,15 @@
                                         <div class="col col-md-3">
                                             <label for="id_jabatan" class=" form-control-label">ID Jabatan</label>
                                         </div>
-                                        <div class="form-group col-md-9">
-                                            <input type="text" id="id_jabatan" name="id_jabatan" class="form-control">
+                                        <div class="form-group col-md-7">
+                                            <input type="text" id="id_jabatan" name="id_jabatan" class="form-control" readonly="">
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="jabatan" class=" form-control-label">Jabatan</label>
                                         </div>
-                                        <div class="form-group col-md-9">
+                                        <div class="form-group col-md-7">
                                             <input type="text" id="jabatan" name="jabatan" class="form-control" required="required" autofocus>
                                         </div>
                                     </div>
@@ -39,7 +39,7 @@
                                         <div class="col col-md-3">
                                             <label for="ket" class=" form-control-label">Keterangan</label>
                                         </div>
-                                        <div class="form-group col-md-9">
+                                        <div class="form-group col-md-7">
                                             <input type="text" id="ket" name="ket" class="form-control">
                                         </div>
                                     </div>
