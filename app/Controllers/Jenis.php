@@ -22,7 +22,6 @@ class Jenis extends BaseController
             'jenis' => $Jenis
         ];
 
-
         return view('admin/jenis', $data);
     }
 
@@ -35,15 +34,43 @@ class Jenis extends BaseController
         return view('insert/add_jenis', $data);
     }
 
-    public function save_jenis()
+    public function edit_jenis()
     {
+        $data = [
+            'title' => 'Edit Jenis'
+        ];
+
+        return view('edit/edit_jenis', $data);
+    }
+
+    public function save()
+    {
+        //validasi input
+        if (!$this->validate([
+            'jenis' => 'required|is_unique[jenis.jenis]'
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/jenis/add_jenis')->withInput()->with('validation', $validation);
+        }
+
         $this->JenisModel->save([
             'jenis' => $this->request->getVar('jenis'),
             'ket' => $this->request->getVar('ket')
         ]);
 
-        session()->setFlashdata('Pesan', 'Jenis barang berhasil ditambahkan.');
+        session()->setFlashdata('berhasil', 'Jenis berhasil ditambahkan.');
 
-        return redirect()->to('/jenis');
+        return redirect()->to('/jenis/jenis');
+    }
+
+    function delete($id_jenis)
+    {
+        $dataJenis = $this->JenisModel->find($id_jenis);
+        if (empty($dataJenis)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Jenis Tidak ditemukan !');
+        }
+        $this->JenisModel->delete($id_jenis);
+        session()->setFlashdata('delete', 'Delete Data Jenis Berhasil');
+        return redirect()->to('/jenis/jenis');
     }
 }
