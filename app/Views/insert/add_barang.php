@@ -13,7 +13,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header bg-secondary text-white">
-                                <a type="button" class="btn btn-secondary btn-sm mr-3" href="/barang/barang"><- Back</a>
+                                <a type="button" class="btn btn-secondary btn-sm mr-3" href="/barang/barang"><i class="fas fa-reply"></i> Back</a>
                                         Tambah <strong>Barang</strong>
                             </div>
                             <div class="card-body card-block">
@@ -24,7 +24,7 @@
                                             <label for="id_barang" class=" form-control-label">ID Barang</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="id_barang" name="id_barang" class="form-control">
+                                            <input type="text" id="id_barang" name="id_barang" class="form-control" readonly="">
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -48,12 +48,15 @@
                                             <label for="id_jenis" class=" form-control-label">Jenis Barang</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="id_jenis" name="id_jenis" class="form-control" required="required">
+                                        <input type="text" id="id_jenis" name="id_jenis" class="form-control" required="required">
+                                            <!-- <select name="jenis" class="form-control">
+                                                <option value="">- Pilih -</option>
+                                            </select> -->
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="tperoleh" class=" form-control-label">Tanggal Peroleh</label>
+                                            <label for="tperoleh" class="form-control-label">Tanggal Peroleh</label>
                                         </div>
                                         <div class="form-group col-md-7">
                                             <input type="date" id="tperoleh" name="tperoleh" class="form-control" required="required">
@@ -83,9 +86,9 @@
                                 <!-- <button type="reset" class="btn btn-danger btn-sm">
                                     <i class="fa fa-ban"></i> Reset
                                 </button> -->
-                                <button type="button" class="btn btn-primary btn-sm float-right" href="#">
+                                <!-- <button type="button" class="btn btn-primary btn-sm float-right" href="#">
                                     Next <i class="fa fa-chevron-right"></i>
-                                </button>
+                                </button> -->
                             </div>
                             </form>
                         </div>
