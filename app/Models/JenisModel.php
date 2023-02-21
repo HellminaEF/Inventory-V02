@@ -8,5 +8,7 @@ class JenisModel extends Model
 {
     protected $table            = 'jenis';
     protected $primaryKey       = 'id_jenis';
-    protected $allowedFields    = ['jenis', 'ket'];
+    protected $returnType = "object";
+    protected $useTimestamps = true;
+    protected $allowedFields    = ['jenis'];
 }

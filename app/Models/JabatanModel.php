@@ -8,5 +8,7 @@ class JabatanModel extends Model
 {
     protected $table            = 'jabatan';
     protected $primaryKey       = 'id_jabatan';
-    protected $allowedFields    = ['jabatan', 'ket'];
+    protected $returnType = "object";
+    protected $useTimestamps = true;
+    protected $allowedFields    = ['jabatan'];
 }
