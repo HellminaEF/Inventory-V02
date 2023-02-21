@@ -36,14 +36,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row form-group">
-                                    <div class="col col-md-3">
-                                        <label for="ket" class=" form-control-label">Keterangan</label>
-                                    </div>
-                                    <div class="form-group col-md-7">
-                                        <input type="text" id="ket" name="ket" class="form-control" value="<?= old('divisi'); ?>">
-                                    </div>
-                                </div>
                         </div>
                         <div class="card-footer">
                             <div class="col-sm-10">
