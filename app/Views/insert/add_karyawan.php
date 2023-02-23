@@ -13,11 +13,11 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header bg-secondary text-white">
-                                <a type="button" class="btn btn-secondary btn-sm mr-3" href="<?= base_url('karyawan') ?>"><i class="fas fa-reply"></i> Back</a>
+                                <a type="button" class="btn btn-secondary btn-sm mr-3" href="/karyawan/karyawan"><i class="fas fa-reply"></i> Back</a>
                                         Tambah <strong>Karyawan</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="<?= base_url('save_karyawan') ?>" method="post" class="form-horizontal">
+                                <form action="/karyawan/create" method="post" class="form-horizontal">
                                     <?= csrf_field(); ?>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
@@ -40,8 +40,11 @@
                                             <label for="id_divisi" class=" form-control-label">Divisi</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <select name="divisi" class="form-control">
-                                                <option value="">- Pilih -</option>
+                                            <select name="id_divisi" class="form-control selectpicker" data-live-search="true">
+                                                <option value="" hidden>- Pilih -</option>
+                                                <?php foreach ($divisi as $key => $value) : ?>
+                                                    <option value="<?= $value->id_divisi ?>"><?= $value->divisi ?></option>
+                                                    <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>
@@ -50,8 +53,11 @@
                                             <label for="id_jabatan" class=" form-control-label">Jabatan</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <select name="jabatan" class="form-control">
-                                                <option value="">- Pilih -</option>
+                                            <select name="id_jabatan" class="form-control">
+                                                <option value="" hidden>- Pilih -</option>
+                                                <?php foreach ($jabatan as $key => $value) : ?>
+                                                    <option value="<?= $value->id_jabatan ?>"><?= $value->jabatan ?></option>
+                                                    <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>

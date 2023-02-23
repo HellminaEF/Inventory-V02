@@ -27,6 +27,12 @@
                                 <?= session()->getFlashdata('berhasil'); ?>
                             </div>
                         <?php endif; ?>
+                <?php if (session()->getFlashdata('delete')) : ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?= session()->getFlashdata('delete'); ?>
+                    </div>
+                <?php endif; ?>
                     </div>
                 </div>
                 <div class="row m-t-30">
@@ -47,23 +53,23 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    <?php foreach ($karyawan as $row) : ?>
+                                    <?php foreach ($karyawan as $key => $value) : ?>
                                         <tr>
                                             <td scope="row"><?= $i++; ?></td>
-                                            <td><?= $row->karyawan; ?></td>
-                                            <td><?= $row->id_divisi; ?></td>
-                                            <td><?= $row->id_jabatan; ?></td>
-                                            <td><?= $row->status; ?></td>
-                                            <td><?= $row->ket; ?></td>
+                                            <td><?= $value->karyawan; ?></td>
+                                            <td><?= $value->divisi; ?></td>
+                                            <td><?= $value->jabatan; ?></td>
+                                            <td><?= $value->status; ?></td>
+                                            <td><?= $value->ket; ?></td>
                                             <td>
                                                 <div class="table-data-feature">
                                                     <!-- <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
                                                     <i class="zmdi zmdi-mail-send"></i>
                                                 </button> -->
-                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("karyawan/edit_karyawan/$row->id_karyawan") ?>">
+                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("karyawan/edit_karyawan/$value->id_karyawan") ?>">
                                                         <i class="zmdi zmdi-edit"></i>
                                                     </a>
-                                                    <a class="item" data-toggle="tooltip" href="<?= base_url("karyawan/delete/$row->id_karyawan") ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini ?')" title="Delete">
+                                                    <a class="item" data-toggle="tooltip" href="<?= base_url("karyawan/delete/$value->id_karyawan") ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini ?')" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
                                                     </a>
                                                 </div>
