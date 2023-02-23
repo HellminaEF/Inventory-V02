@@ -3,111 +3,122 @@
 namespace App\Controllers;
 
 use App\Models\BarangModel;
+use App\Models\JenisModel;
 
 class Barang extends BaseController
 {
-    protected $BarangModel;
-    public function __construct()
+
+    protected $helpers = ['custom'];
+
+    function __construct()
     {
-        $this->BarangModel = new BarangModel();
-        // $this->load->model(['BarangModel', 'JenisModel']);
+        $this->barang = new BarangModel();
+        $this->jenis = new JenisModel();
     }
 
     public function barang()
     {
 
-        $Barang = $this->BarangModel->findAll();
+        $Barang = $this->barang->getAll();
 
         $data = [
             'title' => 'Barang Inventaris',
             'barang' => $Barang
         ];
 
-
         return view('admin/barang', $data);
     }
 
     public function add_barang()
     {
+        $jenis = $this->jenis->findAll();
         $data = [
             'title' => 'Form Tambah Barang',
+            'jenis' => $jenis
         ];
 
         return view('insert/add_barang', $data);
     }
 
-    public function desc_barang()
+    public function create()
     {
-        $data = [
-            'title' => 'Form Tambah Deskripsi Barang'
-        ];
-
-        return view('insert/desc_barang', $data);
+        $data = $this->request->getPost();
+        $this->barang->insert($data);
+        return redirect()->to(site_url('barang'))->with('berhasil', 'Barang Berhasil Ditambahkan.');
     }
 
-    public function det_barang()
-    {
-        $data = [
-            'title' => 'Detail Barang'
-        ];
+    // public function desc_barang()
+    // {
+    //     $data = [
+    //         'title' => 'Form Tambah Deskripsi Barang'
+    //     ];
 
-        return view('detail/det_barang', $data);
-    }
+    //     return view('insert/desc_barang', $data);
+    // }
 
-    public function edit_barang()
-    {
-        $data = [
-            'title' => 'Edit Barang Inventaris'
-        ];
+    // public function det_barang()
+    // {
+    //     $data = [
+    //         'title' => 'Detail Barang'
+    //     ];
 
-        return view('edit/edit_barang', $data);
-    }
+    //     return view('detail/det_barang', $data);
+    // }
 
-    public function import_barang()
-    {
-        $data = [
-            'title' => 'Import Barang Inventaris'
-        ];
+    // public function edit_barang()
+    // {
+    //     $data = [
+    //         'title' => 'Edit Barang Inventaris'
+    //     ];
 
-        return view('insert/import_barang', $data);
-    }
+    //     return view('edit/edit_barang', $data);
+    // }
 
-    public function save()
-    {
-        //validasi input
-        // if (!$this->validate([
-        //     'divisi' => 'required|is_unique[divisi.divisi]'
-        // ])) 
+    // public function import_barang()
+    // {
+    //     $data = [
+    //         'title' => 'Import Barang Inventaris'
+    //     ];
 
-        $this->BarangModel->save([
-            'barang' => $this->request->getVar('barang'),
-            'merk' => $this->request->getVar('merk'),
-            'id_jenis' => $this->request->getVar('id_jenis'),
-            'tperoleh' => $this->request->getVar('tperoleh'),
-            'masa_guna' => $this->request->getVar('masa_guna'),
-            'harga' => $this->request->getVar('harga')
-        ]);
+    //     return view('insert/import_barang', $data);
+    // }
 
-        session()->setFlashdata('berhasil', 'Barang berhasil ditambahkan.');
+    // public function save()
+    // {
+    //     //validasi input
+    //     // if (!$this->validate([
+    //     //     'divisi' => 'required|is_unique[divisi.divisi]'
+    //     // ])) 
 
-        return redirect()->to('/barang/barang');
-    }
+    //     $this->BarangModel->save([
+    //         'barang' => $this->request->getVar('barang'),
+    //         'merk' => $this->request->getVar('merk'),
+    //         'id_jenis' => $this->request->getVar('id_jenis'),
+    //         'tperoleh' => $this->request->getVar('tperoleh'),
+    //         'masa_guna' => $this->request->getVar('masa_guna'),
+    //         'harga' => $this->request->getVar('harga')
+    //     ]);
 
-    function delete($id_barang)
-    {
-        $dataBarang = $this->BarangModel->find($id_barang);
-        if (empty($dataBarang)) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Barang Tidak ditemukan !');
-        }
-        $this->BarangModel->delete($id_barang);
-        session()->setFlashdata('delete', 'Data Barang Berhasil Dihapus');
-        return redirect()->to('/barang');
-    }
+    //     session()->setFlashdata('berhasil', 'Barang berhasil ditambahkan.');
 
-    public function join()
-    {
-        $model = new BarangModel();
-        $data['barang'] = $model->getBarang();
-        echo view('/barang',$data);
-    }
+    //     return redirect()->to('/barang/barang');
+    // }
+
+    // function delete($id_barang)
+    // {
+    //     $dataBarang = $this->BarangModel->find($id_barang);
+    //     if (empty($dataBarang)) {
+    //         throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Barang Tidak ditemukan !');
+    //     }
+    //     $this->BarangModel->delete($id_barang);
+    //     session()->setFlashdata('delete', 'Data Barang Berhasil Dihapus');
+    //     return redirect()->to('/barang');
+    // }
+
+    // public function join()
+    // {
+    //     $model = new BarangModel();
+    //     $data['barang'] = $model->getBarang();
+    //     echo view('/barang',$data);
+    // }
 }

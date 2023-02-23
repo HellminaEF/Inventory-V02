@@ -17,7 +17,7 @@
                                         Tambah <strong>Barang</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="/barang/save" method="post" class="form-horizontal">
+                                <form action="/barang/create" method="post" class="form-horizontal">
                                     <?= csrf_field(); ?>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
@@ -48,10 +48,12 @@
                                             <label for="id_jenis" class=" form-control-label">Jenis Barang</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                        <input type="text" id="id_jenis" name="id_jenis" class="form-control" required="required">
-                                            <!-- <select name="jenis" class="form-control">
-                                                <option value="">- Pilih -</option>
-                                            </select> -->
+                                            <select name="id_jenis" class="form-control" required>
+                                                <option value="" hidden>- Pilih -</option>
+                                                    <?php foreach ($jenis as $key => $value) : ?>
+                                                    <option value="<?= $value->id_jenis ?>"><?= $value->jenis ?></option>
+                                                    <?php endforeach; ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -83,12 +85,9 @@
                                 <button type="submit" class="btn btn-primary btn-sm">
                                     <i class="fa fa-dot-circle-o"></i> Submit
                                 </button>
-                                <!-- <button type="reset" class="btn btn-danger btn-sm">
+                                <button type="reset" class="btn btn-danger btn-sm">
                                     <i class="fa fa-ban"></i> Reset
-                                </button> -->
-                                <!-- <button type="button" class="btn btn-primary btn-sm float-right" href="#">
-                                    Next <i class="fa fa-chevron-right"></i>
-                                </button> -->
+                                </button>
                             </div>
                             </form>
                         </div>

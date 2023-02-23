@@ -43,6 +43,12 @@
                                 <?= session()->getFlashdata('berhasil'); ?>
                             </div>
                         <?php endif; ?>
+                <?php if (session()->getFlashdata('delete')) : ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?= session()->getFlashdata('delete'); ?>
+                    </div>
+                <?php endif; ?>
                         <div class="table-responsive table-responsive-data2">
                             <table class="table table-data2 table-condensed" style="border-collapse:collapse;">
                                 <thead>
@@ -58,24 +64,24 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    <?php foreach ($barang as $row) : ?>
+                                    <?php foreach ($barang as $key => $value) : ?>
                                         <tr class="tr-shadow accordion-toggle" data-toggle="collapse" data-target="#demo1">
                                             <td scope="row"><?= $i++; ?></td>
-                                            <td><?= $row->barang; ?></td>
-                                            <td><?= $row->merk; ?></td>
-                                            <td><?= $row->id_jenis; ?></td>
-                                            <td><?= $row->tperoleh; ?></td>
-                                            <td><?= $row->masa_guna; ?> Bulan</td>
-                                            <td>RP <?= $row->harga; ?></td>
+                                            <td><?= $value->barang; ?></td>
+                                            <td><?= $value->merk; ?></td>
+                                            <td><?= $value->jenis; ?></td>
+                                            <td><?= $value->tperoleh; ?></td>
+                                            <td><?= $value->masa_guna; ?> Bulan</td>
+                                            <td>RP <?= $value->harga; ?></td>
                                             <td>
                                                 <div class="table-data-feature">
                                                     <!-- <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
                                                     <i class="zmdi zmdi-mail-send"></i>
                                                 </button> -->
-                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("barang/edit_barang/$row->id_barang") ?>">
+                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("barang/edit_barang/$value->id_barang") ?>">
                                                         <i class="zmdi zmdi-edit"></i>
                                                     </a>
-                                                    <a class="item" data-toggle="tooltip" href="<?= base_url("barang/delete/$row->id_barang") ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini ?')" title="Delete">
+                                                    <a class="item" data-toggle="tooltip" href="<?= base_url("barang/delete/$value->id_barang") ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini ?')" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
                                                     </a>
                                                     <a class="item" data-toggle="tooltip" data-placement="top" title="Detail" href="/barang/det_barang">
