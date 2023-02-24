@@ -51,6 +51,17 @@ class Karyawan extends BaseController
         return redirect()->to(site_url('karyawan'))->with('berhasil', 'Karyawan Berhasil Ditambahkan.');
     }
 
+    function delete($id_karyawan)
+    {
+        $dataKaryawan = $this->karyawan->find($id_karyawan);
+        if (empty($dataKaryawan)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Karyawan Tidak ditemukan !');
+        }
+        $this->karyawan->delete($id_karyawan);
+        session()->setFlashdata('delete', 'Data Karyawan Berhasil Dihapus');
+        return redirect()->to(site_url('karyawan'));
+    }
+
     // protected $KaryawanModel;
     // public function __construct()
     // {
