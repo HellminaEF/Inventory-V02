@@ -43,16 +43,16 @@
                                 <?= session()->getFlashdata('berhasil'); ?>
                             </div>
                         <?php endif; ?>
-                <?php if (session()->getFlashdata('delete')) : ?>
-                    <div class="alert alert-danger alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <?= session()->getFlashdata('delete'); ?>
-                    </div>
-                <?php endif; ?>
+                        <?php if (session()->getFlashdata('delete')) : ?>
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <?= session()->getFlashdata('delete'); ?>
+                            </div>
+                        <?php endif; ?>
                         <div class="table-responsive table-responsive-data2">
                             <table class="table table-data2 table-condensed" style="border-collapse:collapse;">
                                 <thead>
-                                    <tr>
+                                    <tr align="center">
                                         <th>ID Barang</th>
                                         <th>Nama Barang</th>
                                         <th>Merk</th>
@@ -65,7 +65,7 @@
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php foreach ($barang as $key => $value) : ?>
-                                        <tr class="tr-shadow accordion-toggle" data-toggle="collapse" data-target="#demo1">
+                                        <tr class="tr-shadow accordion-toggle" align="center" data-toggle="collapse" data-target="#demo1">
                                             <td scope="row"><?= $i++; ?></td>
                                             <td><?= $value->barang; ?></td>
                                             <td><?= $value->merk; ?></td>
@@ -75,18 +75,34 @@
                                             <td>RP <?= $value->harga; ?></td>
                                             <td>
                                                 <div class="table-data-feature">
-                                                    <!-- <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                    <i class="zmdi zmdi-mail-send"></i>
-                                                </button> -->
-                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("barang/edit_barang/$value->id_barang") ?>">
-                                                        <i class="zmdi zmdi-edit"></i>
-                                                    </a>
-                                                    <a class="item" data-toggle="tooltip" href="<?= base_url("barang/delete/$value->id_barang") ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini ?')" title="Delete">
-                                                        <i class="zmdi zmdi-delete"></i>
-                                                    </a>
-                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Detail" href="/barang/det_barang">
-                                                        <i class="zmdi zmdi-info"></i>
-                                                    </a>
+                                                    <div class="header-button">
+                                                        <div class="account-wrap">
+                                                            <div class="account-item clearfix js-item-menu">
+                                                                <i class="fas fa-ellipsis-v"></i>
+                                                                <div class="pil-dropdown js-dropdown">
+                                                                    <div class="pil-dropdown__body">
+                                                                        <div class="pil-dropdown__item">
+                                                                            <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("barang/edit_barang/$value->id_barang") ?>">
+                                                                                <i class="zmdi zmdi-edit"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="pil-dropdown__item">
+                                                                            <a class="item" data-toggle="tooltip" href="<?= base_url("barang/delete/$value->id_barang") ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini ?')" title="Delete">
+                                                                                <i class="zmdi zmdi-delete"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="pil-dropdown__item">
+                                                                            <a class="item" data-toggle="tooltip" data-placement="top" title="Detail" href="/barang/det_barang">
+                                                                                <i class="zmdi zmdi-info"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -119,7 +135,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="copyright">
-                <span>Copyright &copy; PKL13 <?= date('Y'); ?>. All rights reserved</span>
+                <span>Copyright &copy; PKL13 2022. All rights reserved</span>
             </div>
         </div>
     </div>
