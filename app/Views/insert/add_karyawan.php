@@ -14,7 +14,7 @@
                         <div class="card">
                             <div class="card-header bg-secondary text-white">
                                 <a type="button" class="btn btn-secondary btn-sm mr-3" href="/karyawan/karyawan"><i class="fas fa-reply"></i> Back</a>
-                                        Tambah <strong>Karyawan</strong>
+                                Tambah <strong>Karyawan</strong>
                             </div>
                             <div class="card-body card-block">
                                 <form action="/karyawan/create" method="post" class="form-horizontal">
@@ -44,7 +44,7 @@
                                                 <option value="" hidden>- Pilih -</option>
                                                 <?php foreach ($divisi as $key => $value) : ?>
                                                     <option value="<?= $value->id_divisi ?>"><?= $value->divisi ?></option>
-                                                    <?php endforeach; ?>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@
                                                 <option value="" hidden>- Pilih -</option>
                                                 <?php foreach ($jabatan as $key => $value) : ?>
                                                     <option value="<?= $value->id_jabatan ?>"><?= $value->jabatan ?></option>
-                                                    <?php endforeach; ?>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>
@@ -82,9 +82,9 @@
                                 <button type="submit" class="btn btn-primary btn-sm">
                                     <i class="fa fa-dot-circle-o"></i> Submit
                                 </button>
-                                <!-- <button type="reset" class="btn btn-danger btn-sm">
+                                <button type="reset" class="btn btn-danger btn-sm">
                                     <i class="fa fa-ban"></i> Reset
-                                </button> -->
+                                </button>
                             </div>
                             </form>
                         </div>
