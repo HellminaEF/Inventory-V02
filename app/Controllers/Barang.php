@@ -47,6 +47,26 @@ class Barang extends BaseController
         return redirect()->to(site_url('barang'))->with('berhasil', 'Barang Berhasil Ditambahkan.');
     }
 
+    public function edit_barang()
+    {
+        $data = [
+            'title' => 'Edit Barang Inventaris'
+        ];
+
+        return view('edit/edit_barang', $data);
+    }
+
+    function delete($id_barang)
+    {
+        $dataBarang = $this->barang->find($id_barang);
+        if (empty($dataBarang)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Barang Tidak ditemukan !');
+        }
+        $this->barang->delete($id_barang);
+        session()->setFlashdata('delete', 'Data Barang Berhasil Dihapus');
+        return redirect()->to(site_url('barang'));
+    }
+
     // public function desc_barang()
     // {
     //     $data = [
@@ -65,14 +85,7 @@ class Barang extends BaseController
     //     return view('detail/det_barang', $data);
     // }
 
-    // public function edit_barang()
-    // {
-    //     $data = [
-    //         'title' => 'Edit Barang Inventaris'
-    //     ];
 
-    //     return view('edit/edit_barang', $data);
-    // }
 
     // public function import_barang()
     // {
