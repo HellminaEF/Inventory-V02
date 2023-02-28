@@ -35,6 +35,12 @@
                         <?= session()->getFlashdata('delete'); ?>
                     </div>
                 <?php endif; ?>
+                <?php if (session()->getFlashdata('update')) : ?>
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?= session()->getFlashdata('update'); ?>
+                    </div>
+                <?php endif; ?>
                 <div class="row m-t-30">
                     <div class="col-md-12">
                         <!-- DATA TABLE-->
@@ -51,11 +57,11 @@
                                     <?php $i = 1; ?>
                                     <?php foreach ($jenis as $row) : ?>
                                         <tr>
-                                            <td scope="row"><?= $i++; ?></td>
+                                            <td><?= $i++; ?></td>
                                             <td><?= $row->jenis; ?></td>
                                             <td>
                                                 <div class="table-data-feature">
-                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("jenis/edit_jenis/$row->id_jenis") ?>">
+                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("jenis/edit_jenis") ?>">
                                                         <i class="zmdi zmdi-edit"></i>
                                                     </a>
                                                     <a class="item" data-toggle="tooltip" href="<?= base_url("jenis/delete/$row->id_jenis") ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini ?')" title="Delete">
