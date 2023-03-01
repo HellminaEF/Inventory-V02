@@ -35,14 +35,14 @@ class Jabatan extends BaseController
         return view('insert/add_jabatan', $data);
     }
 
-    public function edit_jabatan()
-    {
-        $data = [
-            'title' => 'Edit Jabatan'
-        ];
+    // public function edit_jabatan()
+    // {
+    //     $data = [
+    //         'title' => 'Edit Jabatan'
+    //     ];
 
-        return view('edit/edit_jabatan', $data);
-    }
+    //     return view('edit/edit_jabatan', $data);
+    // }
 
     public function save()
     {
@@ -55,8 +55,7 @@ class Jabatan extends BaseController
         }
 
         $this->JabatanModel->save([
-            'jabatan' => $this->request->getVar('jabatan'),
-            'ket' => $this->request->getVar('ket')
+            'jabatan' => $this->request->getVar('jabatan')
         ]);
 
         session()->setFlashdata('berhasil', 'Jabatan berhasil ditambahkan.');
@@ -81,5 +80,20 @@ class Jabatan extends BaseController
 
             return redirect()->to(base_url('jabatan'));
         }
+    }
+
+    public function edit_jabatan($id_jabatan)
+    {
+        $data = [
+            'title' => 'Edit Jabatan',
+            'jabatan' => $this->JabatanModel->DetailData($id_jabatan),
+        ];
+        return view('edit/edit_jabatan', $data);
+
+        // $this->JenisModel->update($id_jenis, [
+        //     'jenis' => $this->request->getPost('jenis'),
+        // ]);
+
+        // return redirect('jenis')->with('success', 'Data Berhasil di Update');
     }
 }
