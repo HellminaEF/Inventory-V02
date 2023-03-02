@@ -12,18 +12,18 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header bg-secondary text-white">
-                            <a type="button" class="btn btn-secondary btn-sm mr-3" href="/divisi/divisi"><- Back</a>
-                                    Edit <strong>Divisi</strong>
+                            <a type="button" class="btn btn-secondary btn-sm mr-3" href="/divisi/divisi"><i class="fas fa-reply"></i> Back</a>
+                            Edit <strong>Divisi</strong>
                         </div>
                         <div class="card-body card-block">
-                            <form action="<?= base_url('divisi/edit/' . $divisi['id_divisi']) ?>" method="post" class="form-horizontal">
+                            <form action="/divisi/edit_divisi" method="post" class="form-horizontal">
                                 <?= csrf_field(); ?>
                                 <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="id_divisi" class="form-control-label">ID Divisi</label>
                                     </div>
                                     <div class="form-group col-md-7">
-                                        <input type="text" id="id_divisi" name="id_divisi" class="form-control">
+                                        <input type="text" id="id_divisi" name="id_divisi" class="form-control" value="<?= $divisi->id_divisi; ?>" readonly="">
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -31,15 +31,7 @@
                                         <label for="divisi" class="form-control-label">Nama Divisi</label>
                                     </div>
                                     <div class="form-group col-md-7">
-                                        <input type="text" class="form-control <?= ($validation->hasError('divisi')) ? 'is-invalid' : ''; ?>" value="<?= $divisi['divisi'] ?>" id="divisi" name="divisi" autofocus value="<?= old('divisi'); ?>">
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col col-md-3">
-                                        <label for="ket" class=" form-control-label">Keterangan</label>
-                                    </div>
-                                    <div class="form-group col-md-7">
-                                        <input type="text" value="<?= $divisi['ket'] ?>" id="ket" name="ket" class="form-control" value="<?= old('divisi'); ?>">
+                                        <input type="text" class="form-control" value="<?= $divisi->divisi; ?>" id="divisi" name="divisi" autofocus value="<?= old('divisi'); ?>">
                                     </div>
                                 </div>
                         </div>
