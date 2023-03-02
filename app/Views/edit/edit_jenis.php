@@ -12,18 +12,18 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header bg-secondary text-white">
-                            <a type="button" class="btn btn-secondary btn-sm mr-3" href="/jenis/jenis"><- Back</a>
-                                    Edit <strong>Data Jenis</strong>
+                            <a type="button" class="btn btn-secondary btn-sm mr-3" href="/jenis/jenis"><i class="fas fa-reply"></i> Back</a>
+                            Edit <strong>Data Jenis</strong>
                         </div>
                         <div class="card-body card-block">
-                            <form action="/jenis/save" method="post" class="form-horizontal">
+                            <form action="/jenis/edit_jenis" method="post" class="form-horizontal">
                                 <?= csrf_field(); ?>
                                 <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="id_jenis" class="form-control-label">ID Jenis Barang</label>
                                     </div>
                                     <div class="form-group col-md-7">
-                                        <input type="text" id="id_jenis" name="id_jenis" class="form-control">
+                                        <input type="text" id="id_jenis" name="id_jenis" class="form-control" value="<?= $jenis->id_jenis; ?>" readonly="">
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -31,15 +31,7 @@
                                         <label for="jenis" class="form-control-label">Jenis Barang</label>
                                     </div>
                                     <div class="form-group col-md-7">
-                                        <input type="text" id="jenis" name="jenis" class="form-control" required="required" autofocus>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col col-md-3">
-                                        <label for="ket" class="form-control-label">Keterangan</label>
-                                    </div>
-                                    <div class="form-group col-md-7">
-                                        <input type="text" id="ket" name="ket" class="form-control">
+                                        <input type="text" id="jenis" name="jenis" class="form-control" value="<?= $jenis->jenis; ?>" autofocus>
                                     </div>
                                 </div>
                         </div>
