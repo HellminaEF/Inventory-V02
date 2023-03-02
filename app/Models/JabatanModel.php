@@ -11,4 +11,11 @@ class JabatanModel extends Model
     protected $returnType = "object";
     protected $useTimestamps = true;
     protected $allowedFields    = ['jabatan'];
+
+    public function DetailData($id_jabatan)
+    {
+        return $this->db->table('jabatan')
+            ->where('id_jabatan', $id_jabatan)
+            ->Get()->getRow();
+    }
 }
