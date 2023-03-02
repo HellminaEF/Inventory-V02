@@ -12,12 +12,21 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- DATA TABLE -->
-                        <h3 class="title-5 m-b-35">Pilih Data Barang Inventaris</h3>
+                        <h3 class="title-5 m-b-35"><a type="button" class="btn btn-secondary btn-sm mr-3" href="/transaksi"><i class="fas fa-reply"></i> Back</a>Pilih Data Barang Inventaris</h3>
                         <hr>
                         <div class="table-data__tool">
                             <div class="table-data__tool-left">
                                 <div class="rs-select2--light rs-select2--md">
                                     <input type="date" class="form-control" placeholder="Start" name="date1" />
+                                    <div class="dropDownSelect2"></div>
+                                </div>
+                                <div class="rs-select2--light rs-select2--md">
+                                    <select class="js-select2" name="property">
+                                        <option value="selected">Semua Jenis</option>
+                                        <?php foreach ($jenis as $key => $value) : ?>
+                                            <option value="<?= $value->id_jenis ?>"><?= $value->jenis ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                     <div class="dropDownSelect2"></div>
                                 </div>
                                 <!-- <button class="au-btn-filter">
