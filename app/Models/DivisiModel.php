@@ -12,4 +12,11 @@ class DivisiModel extends Model
     protected $returnType = "object";
     protected $useTimestamps = true;
     protected $allowedFields    = ['divisi'];
+
+    public function DetailData($id_divisi)
+    {
+        return $this->db->table('divisi')
+            ->where('id_divisi', $id_divisi)
+            ->Get()->getRow();
+    }
 }
