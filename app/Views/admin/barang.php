@@ -20,6 +20,15 @@
                                     <input type="date" class="form-control" placeholder="Start" name="date1" />
                                     <div class="dropDownSelect2"></div>
                                 </div>
+                                <div class="rs-select2--light rs-select2--md">
+                                    <select class="js-select2" name="property">
+                                        <option value="selected">Semua Jenis</option>
+                                        <?php foreach ($jenis as $key => $value) : ?>
+                                            <option value="<?= $value->id_jenis ?>"><?= $value->jenis ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <div class="dropDownSelect2"></div>
+                                </div>
                                 <!-- <button class="au-btn-filter">
                                     <i class="zmdi zmdi-filter-list"></i>filters</button> -->
                             </div>
@@ -33,8 +42,8 @@
                                     </div>
                                 </div>
 
-                                <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                    Export</button>
+                                <!-- <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    Export</button> -->
                             </div>
                         </div>
                         <?php if (session()->getFlashdata('berhasil')) : ?>
