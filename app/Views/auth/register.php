@@ -32,22 +32,29 @@
                     <img src="images/icon/8.png" alt="IMG">
                 </div> -->
 
-                <form action="<?= url_to('register') ?>" method="post" class="login100-form validate-form">
-                    <?= csrf_field() ?>
+                <?php
+                $session = session();
+                $error = $session->getFlashdata('error');
+                ?>
+
+                <?php if ($error) { ?>
+                    <p style="color:red">Terjadi Kesalahan:
+                    <ul>
+                        <?php foreach ($error as $e) { ?>
+                            <li><?php echo $e ?></li>
+                        <?php } ?>
+                    </ul>
+                    </p>
+                <?php } ?>
+
+                <form action="/auth/valid_register" method="post" class="login100-form validate-form">
+                    <?= csrf_field(); ?>
                     <span class="login100-form-title">
-                        USSI Inventory
+                        Register
                     </span>
-                    
-                    <div class="wrap-input100 validate-input" data-validate="Email is required">
-                        <input class="input100 <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" type="email" name="email" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-at" aria-hidden="true"></i>
-                        </span>
-                    </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Username is required">
-                        <input class="input100 <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" type="text" name="username" placeholder="<?= lang('Auth.username') ?>" value="<?= old('username') ?>">
+                        <input class="input100" type="text" name="username" id="username" placeholder="Username">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -55,7 +62,15 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100 <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" type="password" name="pass" placeholder="<?= lang('Auth.password') ?>" autocomplete="off">
+                        <input class="input100" type="password" name="password" id="password" placeholder="Password">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input class="input100" type="password" name="confirm" id="confirm" placeholder="Confirm Password">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
@@ -63,13 +78,13 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn" type="submit">
-                            <?= lang('Auth.register') ?>
+                        <button class="login100-form-btn" type="submit" name="login">
+                            Register
                         </button>
                     </div>
                     <hr>
 
-                    <p class="text-center"><?= lang('Auth.alreadyRegistered') ?> <a href="<?= url_to('login') ?>"><?= lang('Auth.signIn') ?></a></p>
+                    <p class="text-center"><a href="<?= base_url('login') ?>">already registered? log in</a></p>
 
                     <div class="text-center p-t-127">
                         <span>Copyright &copy; PKL13 <?= date('Y'); ?></span>
