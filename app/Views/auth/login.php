@@ -32,14 +32,33 @@
                     <img src="images/icon/8.png" alt="IMG">
                 </div> -->
 
-                <form action="<?= url_to('login') ?>" method="post" class="login100-form validate-form">
+                <form action="/auth/valid_login" method="post" class="login100-form validate-form">
                     <?= csrf_field() ?>
                     <span class="login100-form-title">
-                        USSI Inventory
+                        Login
                     </span>
 
+                    <?php
+                    $session = session();
+                    $login = $session->getFlashdata('login');
+                    $username = $session->getFlashdata('username');
+                    $password = $session->getFlashdata('password');
+                    ?>
+
+                    <?php if ($username) { ?>
+                        <p style="color:red"><?php echo $username ?></p>
+                    <?php } ?>
+
+                    <?php if ($password) { ?>
+                        <p style="color:red"><?php echo $password ?></p>
+                    <?php } ?>
+
+                    <?php if ($login) { ?>
+                        <p style="color:green"><?php echo $login ?></p>
+                    <?php } ?>
+
                     <div class="wrap-input100 validate-input" data-validate="Username is required">
-                        <input class="input100 <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" type="text" name="username" placeholder="<?= lang('Auth.username') ?>" value="<?= old('username') ?>">
+                        <input class="input100" type="text" name="username" placeholder="Username">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -47,7 +66,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100 <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" type="password" name="pass" placeholder="<?= lang('Auth.password') ?>">
+                        <input class="input100" type="password" name="password" placeholder="Password">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
@@ -55,18 +74,16 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn" type="submit">
-                            <?= lang('Auth.loginAction') ?>
+                        <button class="login100-form-btn" type="submit" name="login">
+                            Login
                         </button>
                     </div>
                     <hr>
 
-                    <?php if ($config->allowRegistration) : ?>
-                        <p class="text-center"><a href="<?= url_to('register') ?>"><?= lang('Auth.needAnAccount') ?></a></p>
-                    <?php endif; ?>
+                    <p class="text-center"><a href="<?= url_to('register') ?>">Belum punya akun?</a></p>
 
                     <div class="text-center p-t-127">
-                        <span>Copyright &copy; PKL13 <?= date('Y'); ?></span>
+                        <span>Copyright &copy; PKL13 2022</span>
                     </div>
                 </form>
             </div>
