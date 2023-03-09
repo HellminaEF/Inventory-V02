@@ -19,20 +19,20 @@
                             <div class="card-body card-block">
                                 <form action="/kode_trans/save" method="post" class="form-horizontal">
                                     <?= csrf_field(); ?>
-                                    <div class="row form-group">
+                                    <!-- <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="id_ktrans" class=" form-control-label">ID</label>
                                         </div>
                                         <div class="form-group col-md-7">
                                             <input type="text" id="id_ktrans" name="id_ktrans" class="form-control" readonly="">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="kode_trans" class=" form-control-label">Kode Transaksi</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="kode_trans" name="kode_trans" class="form-control" readonly="">
+                                            <input type="text" id="kode_trans" name="kode_trans" class="form-control" required="required" autocomplete="off" autofocus>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -40,7 +40,7 @@
                                             <label for="jenis_trans" class=" form-control-label">Nama Transaksi</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="jenis_trans" name="jenis_trans" class="form-control" required="required" autofocus>
+                                            <input type="text" id="jenis_trans" name="jenis_trans" class="form-control" required="required" autocomplete="off">
                                         </div>
                                     </div>
                             </div>

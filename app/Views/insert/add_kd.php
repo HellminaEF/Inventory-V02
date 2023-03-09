@@ -18,14 +18,14 @@
                         <div class="card-body card-block">
                             <form action="/kondisi_dibeli/save" method="post" class="form-horizontal">
                                 <?= csrf_field(); ?>
-                                <div class="row form-group">
+                                <!-- <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="id_kdibeli" class="form-control-label">ID Kondisi</label>
                                     </div>
                                     <div class="form-group col-md-7">
                                         <input type="text" id="id_kdibeli" name="id_kdibeli" class="form-control" readonly="">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="kondisi_dibeli" class="form-control-label">Kondisi Barang Saat Dibeli</label>

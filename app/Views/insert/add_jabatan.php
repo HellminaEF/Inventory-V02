@@ -14,19 +14,19 @@
                         <div class="card">
                             <div class="card-header bg-secondary text-white">
                                 <a type="button" class="btn btn-secondary btn-sm mr-3" href="/jabatan/jabatan"><i class="fas fa-reply"></i> Back</a>
-                                        Tambah <strong>Jabatan</strong>
+                                Tambah <strong>Jabatan</strong>
                             </div>
                             <div class="card-body card-block">
                                 <form action="/jabatan/save" method="post" class="form-horizontal">
                                     <?= csrf_field(); ?>
-                                    <div class="row form-group">
+                                    <!-- <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="id_jabatan" class=" form-control-label">ID Jabatan</label>
                                         </div>
                                         <div class="form-group col-md-7">
                                             <input type="text" id="id_jabatan" name="id_jabatan" class="form-control" readonly="">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="jabatan" class=" form-control-label">Jabatan</label>

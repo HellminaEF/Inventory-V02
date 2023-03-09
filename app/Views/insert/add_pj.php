@@ -18,12 +18,20 @@
                         <div class="card-body card-block">
                             <form action="/pj/save" method="post" class="form-horizontal">
                                 <?= csrf_field(); ?>
-                                <div class="row form-group">
+                                <!-- <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="id_pj" class="form-control-label">ID Penanggung Jawab</label>
                                     </div>
                                     <div class="form-group col-md-7">
                                         <input type="text" id="id_pj" name="id_pj" class="form-control" readonly="">
+                                    </div>
+                                </div> -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="kode_pj" class="form-control-label">Kode</label>
+                                    </div>
+                                    <div class="form-group col-md-7">
+                                        <input type="text" id="kode_pj" name="kode_pj" class="form-control" required="required" autofocus>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -31,7 +39,7 @@
                                         <label for="penanggung_jawab" class="form-control-label">Nama Penanggung Jawab</label>
                                     </div>
                                     <div class="form-group col-md-7">
-                                        <input type="text" id="penanggung_jawab" name="penanggung_jawab" class="form-control" required="required" autofocus>
+                                        <input type="text" id="penanggung_jawab" name="penanggung_jawab" class="form-control" required="required">
                                     </div>
                                 </div>
                         </div>

@@ -13,19 +13,19 @@
                     <div class="card">
                         <div class="card-header bg-secondary text-white">
                             <a type="button" class="btn btn-secondary btn-sm mr-3" href="/divisi/divisi"><i class="fas fa-reply"></i> Back</a>
-                                    Tambah <strong>Divisi</strong>
+                            Tambah <strong>Divisi</strong>
                         </div>
                         <div class="card-body card-block">
                             <form action="/divisi/save" method="post" class="form-horizontal">
                                 <?= csrf_field(); ?>
-                                <div class="row form-group">
+                                <!-- <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="id_divisi" class="form-control-label">ID Divisi</label>
                                     </div>
                                     <div class="form-group col-md-7">
                                         <input type="text" id="id_divisi" name="id_divisi" class="form-control" readonly="">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="divisi" class="form-control-label">Nama Divisi</label>

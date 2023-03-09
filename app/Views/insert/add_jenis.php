@@ -13,19 +13,19 @@
                     <div class="card">
                         <div class="card-header bg-secondary text-white">
                             <a type="button" class="btn btn-secondary btn-sm mr-3" href="/jenis/jenis"><i class="fas fa-reply"></i> Back</a>
-                                    Tambah <strong>Data Jenis</strong>
+                            Tambah <strong>Data Jenis</strong>
                         </div>
                         <div class="card-body card-block">
                             <form action="/jenis/save" method="post" class="form-horizontal">
                                 <?= csrf_field(); ?>
-                                <div class="row form-group">
+                                <!-- <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="id_jenis" class="form-control-label">ID Jenis Barang</label>
                                     </div>
                                     <div class="form-group col-md-7">
                                         <input type="text" id="id_jenis" name="id_jenis" class="form-control" readonly="">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="jenis" class="form-control-label">Jenis Barang</label>
@@ -56,5 +56,18 @@
         </div>
     </div>
 </div>
+
+<!-- <script>
+    $(document).ready(function() {
+        $.ajax({
+            url: "",
+            type: "GET",
+            success: function(hasil) {
+                var obj = $.parseJSON(hasil);
+                $('#id_jenis').val(obj);
+            }
+        });
+    });
+</script> -->
 
 <?= $this->endSection(); ?>
