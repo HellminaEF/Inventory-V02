@@ -10,19 +10,85 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-9">
                         <div class="card">
-                            <div class="card-body">
-                                <div class="card-text text-sm-center">
-                                </div>
+                            <div class="card-header bg-secondary text-white">
+                                <a type="button" class="btn btn-secondary btn-sm mr-3" href="<?= base_url('transaksi') ?>"><i class="fas fa-reply"></i> Back</a>
+                                Detail <strong>Transaksi</strong>
                             </div>
-                            <div class="card-footer">
-                                <button type="button" class="btn btn-warning btn-sm float-right">
-                                    <i class="fa fa-dot-circle-o"></i> Edit
-                                </button>
-                                <button type="button" class="btn btn-danger btn-sm float-right mr-3" href="#">
-                                    <i class="fa fa-ban"></i> Delete
-                                </button>
+                            <div class="card-body">
+                                <div class="card-text text-sm">
+                                    <div class="row form-group">
+                                        <div class="col col-md-4">
+                                            <label for="barang" class=" form-control-label">
+                                                <h5>Kode Transaksi</h5>
+                                            </label>
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <h4> <small>: <?= $transaksi->id_ktrans; ?></small></h4>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-4">
+                                            <label for="barang" class=" form-control-label">
+                                                <h5>Tanggal Transaksi</h5>
+                                            </label>
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <h4> <small>: <?= $transaksi->t_trans; ?></small></h4>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-4">
+                                            <label for="barang" class=" form-control-label">
+                                                <h5>Kode Barang</h5>
+                                            </label>
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <h4> <small>: <?= $transaksi->id_barang; ?></small></h4>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-4">
+                                            <label for="barang" class=" form-control-label">
+                                                <h5>Nama Barang</h5>
+                                            </label>
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <h4> <small>: <?= $transaksi->id_barang; ?></small></h4>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-4">
+                                            <label for="barang" class=" form-control-label">
+                                                <h5>Nama Merk</h5>
+                                            </label>
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <h4> <small>: <?= $transaksi->id_barang; ?></small></h4>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-4">
+                                            <label for="barang" class=" form-control-label">
+                                                <h5>Nama Karyawan</h5>
+                                            </label>
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <h4> <small>: <?= $transaksi->id_barang; ?></small></h4>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-4">
+                                            <label for="barang" class=" form-control-label">
+                                                <h5>Keterangan</h5>
+                                            </label>
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <h4> <small>: <?= $transaksi->ket; ?></h4>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             </form>
                         </div>
