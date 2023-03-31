@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
+use App\Models\KaryawanModel;
 
 class Auth extends BaseController
 {
@@ -12,6 +13,7 @@ class Auth extends BaseController
     {
         //membuat user model untuk konek ke database 
         $this->userModel = new UserModel();
+        $this->karyawanModel = new KaryawanModel();
 
         //meload validation
         $this->validation = \Config\Services::validation();
@@ -28,8 +30,13 @@ class Auth extends BaseController
 
     public function register()
     {
+        $karyawan = $this->karyawanModel->findAll();
+        $data = [
+            'karyawan' => $karyawan,
+        ];
+
         //menampilkan halaman register
-        return view('auth/register');
+        return view('auth/register', $data);
     }
 
     public function valid_register()
@@ -59,6 +66,7 @@ class Auth extends BaseController
 
         //masukan data ke database
         $this->userModel->save([
+            'id_karyawan' => $data['id_karyawan'],
             'username' => $data['username'],
             'password' => $password,
             'salt' => $salt,
@@ -90,10 +98,12 @@ class Auth extends BaseController
                 $sessLogin = [
                     'isLogin' => true,
                     'username' => $user['username'],
+                    'id_karyawan' => $user['id_karyawan'],
                     'role' => $user['role']
                 ];
                 $this->session->set($sessLogin);
-                return redirect()->to('/user');
+                return redirect()->to('/admin');
+                // return redirect()->to('/user');
             }
         } else {
             //jika username tidak ditemukan, balikkan ke halaman login
@@ -104,8 +114,6 @@ class Auth extends BaseController
 
     public function logout()
     {
-        //hancurkan session 
-        //balikan ke halaman login
         $this->session->destroy();
         return redirect()->to('/auth/login');
     }

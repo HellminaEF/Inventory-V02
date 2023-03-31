@@ -74,18 +74,25 @@ class Status extends BaseController
         return redirect()->to('/status');
     }
 
-    public function edit_divisi($id_status)
+    public function edit_status($id_status)
     {
         $data = [
-            'title' => 'Edit Status Karyawan',
-            'divisi' => $this->status->DetailData($id_status),
+            'title' => 'Edit status',
+            'status' => $this->status->DetailData($id_status),
         ];
         return view('edit/edit_status', $data);
+    }
 
-        // $this->JenisModel->update($id_jenis, [
-        //     'jenis' => $this->request->getPost('jenis'),
-        // ]);
-
-        // return redirect('jenis')->with('success', 'Data Berhasil di Update');
+    function update($id_status)
+    {
+        $datastatus = $this->status->find($id_status);
+        if (empty($datastatus)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data status Tidak ditemukan !');
+        }
+        $this->status->update($id_status, [
+            'status' => $this->request->getVar('status')
+        ]);
+        session()->setFlashdata('update', 'Data status Berhasil Diupdate');
+        return redirect()->to(site_url('status'));
     }
 }

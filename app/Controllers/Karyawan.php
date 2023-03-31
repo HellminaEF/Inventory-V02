@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\KaryawanModel;
 use App\Models\DivisiModel;
 use App\Models\JabatanModel;
+use App\Models\StatusModel;
 
 class Karyawan extends BaseController
 {
@@ -16,16 +17,17 @@ class Karyawan extends BaseController
         $this->karyawan = new KaryawanModel();
         $this->divisi = new DivisiModel();
         $this->jabatan = new JabatanModel();
+        $this->status = new StatusModel();
     }
 
     public function karyawan()
     {
-
         $Karyawan = $this->karyawan->getAll();
-
+        $status = $this->status->findAll();
         $data = [
             'title' => 'Karyawan',
-            'karyawan' => $Karyawan
+            'karyawan' => $Karyawan,
+            'status' => $status
         ];
 
         return view('admin/karyawan', $data);
@@ -35,10 +37,12 @@ class Karyawan extends BaseController
     {
         $divisi = $this->divisi->findAll();
         $jabatan = $this->jabatan->findAll();
+        $status = $this->status->findAll();
         $data = [
             'title' => 'Form Tambah Karyawan',
             'divisi' => $divisi,
-            'jabatan' => $jabatan
+            'jabatan' => $jabatan,
+            'status' => $status
         ];
 
         return view('insert/add_karyawan', $data);
@@ -62,33 +66,59 @@ class Karyawan extends BaseController
         return redirect()->to(site_url('karyawan'));
     }
 
-    // protected $KaryawanModel;
-    // public function __construct()
+    public function edit_karyawan($id_karyawan = null)
+    {
+        $karyawan = $this->karyawan->find($id_karyawan);
+        $divisi = $this->divisi->findAll();
+        $jabatan = $this->jabatan->findAll();
+        $status = $this->status->findAll();
+        if (is_object($karyawan)) {
+            $data = [
+                'title' => 'Edit Data Karyawan',
+                'karyawan' => $karyawan,
+                'divisi' => $divisi,
+                'jabatan' => $jabatan,
+                'status' => $status
+            ];
+
+            return view('edit/edit_karyawan', $data);
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
+
+    public function update($id_karyawan = null)
+    {
+        $data = $this->request->getPost();
+        $this->karyawan->update($id_karyawan, $data);
+        return redirect()->to(site_url('karyawan'))->with('update', 'Data Karyawan Diupdate');
+    }
+
+    public function det_karyawan($id_karyawan = null)
+    {
+        $karyawan = $this->karyawan->find($id_karyawan);
+        $divisi = $this->divisi->findAll();
+        $jabatan = $this->jabatan->findAll();
+        $status = $this->status->findAll();
+        if (is_object($karyawan)) {
+            $data = [
+                'title' => 'Detail Barang',
+                'karyawan' => $karyawan,
+                'divisi' => $divisi,
+                'jabatan' => $jabatan,
+                'status' => $status
+            ];
+
+            return view('detail/det_karyawan', $data);
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
+
+    // public function kode()
     // {
-    //     $this->KaryawanModel = new KaryawanModel();
-    // }
-
-    // public function karyawan()
-    // {
-
-    //     $Karyawan = $this->KaryawanModel->findAll();
-
-    //     $data = [
-    //         'title' => 'Karyawan',
-    //         'karyawan' => $Karyawan
-    //     ];
-
-
-    //     return view('admin/karyawan', $data);
-    // }
-
-    // public function add_karyawan()
-    // {
-    //     $data = [
-    //         'title' => 'Form Tambah Karyawan'
-    //     ];
-
-    //     return view('insert/add_karyawan', $data);
+    //     $data['kode'] = $this->KaryawanModel->buat_kode();
+    //     $this->load->view('karyawan', $data);
     // }
 
     // public function edit_karyawan()

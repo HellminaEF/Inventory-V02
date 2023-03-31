@@ -38,14 +38,14 @@ class Kondisi_dibeli extends BaseController
     {
         //validasi input
         if (!$this->validate([
-            'kd' => 'required|is_unique[kondisi_dibeli.kondisi_dibeli]'
+            'kondisi_dibeli' => 'required|is_unique[kondisi_dibeli.kondisi_dibeli]'
         ])) {
             $validation = \Config\Services::validation();
             return redirect()->to('/kondisi_dibeli/add_kd')->withInput()->with('validation', $validation);
         }
 
         $this->KdModel->save([
-            'kd' => $this->request->getVar('kondisi_dibeli')
+            'kondisi_dibeli' => $this->request->getVar('kondisi_dibeli')
         ]);
 
         session()->setFlashdata('berhasil', 'Kondisi berhasil ditambahkan.');
@@ -64,14 +64,27 @@ class Kondisi_dibeli extends BaseController
         return redirect()->to('/kondisi_dibeli/kondisi_dibeli');
     }
 
-    // public function edit_jenis($id_jenis)
-    // {
-    //     $data = [
-    //         'title' => 'Edit Jenis',
-    //         'jenis' => $this->JenisModel->DetailData($id_jenis),
-    //     ];
-    //     return view('edit/edit_jenis', $data);
-    // }
+    public function edit_kd($id_kdibeli)
+    {
+        $data = [
+            'title' => 'Edit kondisi dibeli',
+            'kd' => $this->KdModel->DetailData($id_kdibeli),
+        ];
+        return view('edit/edit_kd', $data);
+    }
+
+    function update($id_kdibeli)
+    {
+        $datakd = $this->KdModel->find($id_kdibeli);
+        if (empty($datakd)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Kondisi Tidak ditemukan !');
+        }
+        $this->KdModel->update($id_kdibeli, [
+            'kondisi_dibeli' => $this->request->getVar('kondisi_dibeli')
+        ]);
+        session()->setFlashdata('update', 'Data Kondisi Berhasil Diupdate');
+        return redirect()->to(site_url('kondisi_dibeli'));
+    }
 
     // function kode()
     // {

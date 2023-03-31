@@ -49,7 +49,8 @@ class Jenis extends BaseController
         // $this->load->view("insert/add_jenis", $data);
 
         $this->JenisModel->save([
-            'jenis' => $this->request->getVar('jenis')
+            'jenis' => $this->request->getVar('jenis'),
+            'kode_jenis' => $this->request->getVar('kode_jenis')
         ]);
 
         session()->setFlashdata('berhasil', 'Jenis Barang berhasil ditambahkan.');
@@ -60,6 +61,10 @@ class Jenis extends BaseController
     function delete($id_jenis)
     {
         $dataJenis = $this->JenisModel->find($id_jenis);
+        // $error = $this->JenisModel->error();
+        // if ($error['code'] != 0) {
+        //     echo "<script>alert('Data tidak dapat dihapus')</script>";
+        // }
         if (empty($dataJenis)) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Jenis Tidak ditemukan !');
         }
@@ -75,6 +80,20 @@ class Jenis extends BaseController
             'jenis' => $this->JenisModel->DetailData($id_jenis),
         ];
         return view('edit/edit_jenis', $data);
+    }
+
+    function update($id_jenis)
+    {
+        $datajenis = $this->JenisModel->find($id_jenis);
+        if (empty($datajenis)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Jenis Tidak ditemukan !');
+        }
+        $this->JenisModel->update($id_jenis, [
+            'kode_jenis' => $this->request->getVar('kode_jenis'),
+            'jenis' => $this->request->getVar('jenis')
+        ]);
+        session()->setFlashdata('update', 'Data Jenis Berhasil Diupdate');
+        return redirect()->to(site_url('jenis'));
     }
 
     function kode()

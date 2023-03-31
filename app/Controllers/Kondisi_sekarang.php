@@ -38,14 +38,14 @@ class Kondisi_sekarang extends BaseController
     {
         //validasi input
         if (!$this->validate([
-            'ks' => 'required|is_unique[kondisi_sekarang.id_ksekarang]'
+            'kondisi_sekarang' => 'required|is_unique[kondisi_sekarang.id_ksekarang]'
         ])) {
             $validation = \Config\Services::validation();
             return redirect()->to('/kondisi_dibeli/add_kd')->withInput()->with('validation', $validation);
         }
 
         $this->KsModel->save([
-            'ks' => $this->request->getVar('kondisi_sekarang')
+            'kondisi_sekarang' => $this->request->getVar('kondisi_sekarang')
         ]);
 
         session()->setFlashdata('berhasil', 'Kondisi berhasil ditambahkan.');
@@ -62,6 +62,28 @@ class Kondisi_sekarang extends BaseController
         $this->KsModel->delete($id_ksekarang);
         session()->setFlashdata('delete', 'Data Kondisi Berhasil Dihapus');
         return redirect()->to('/kondisi_sekarang/kondisi_sekarang');
+    }
+
+    public function edit_ks($id_ksekarang)
+    {
+        $data = [
+            'title' => 'Edit Kondisi Sekarang',
+            'ks' => $this->KsModel->DetailData($id_ksekarang),
+        ];
+        return view('edit/edit_ks', $data);
+    }
+
+    function update($id_ksekarang)
+    {
+        $dataks = $this->KsModel->find($id_ksekarang);
+        if (empty($dataks)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Jenis Kondisi ditemukan !');
+        }
+        $this->KsModel->update($id_ksekarang, [
+            'kondisi_sekarang' => $this->request->getVar('kondisi_sekarang')
+        ]);
+        session()->setFlashdata('update', 'Data Kondisi Berhasil Diupdate');
+        return redirect()->to(site_url('kondisi_sekarang'));
     }
 
     // public function edit_jenis($id_jenis)

@@ -38,14 +38,15 @@ class Pj extends BaseController
     {
         //validasi input
         if (!$this->validate([
-            'pj' => 'required|is_unique[penanggung_jawab.penanggung_jawab]'
+            'penanggung_jawab' => 'required|is_unique[penanggung_jawab.penanggung_jawab]'
         ])) {
             $validation = \Config\Services::validation();
             return redirect()->to('/pj/add_pj')->withInput()->with('validation', $validation);
         }
 
         $this->PjModel->save([
-            'pj' => $this->request->getVar('penanggung_jawab')
+            'penanggung_jawab' => $this->request->getVar('penanggung_jawab'),
+            'kode_pj' => $this->request->getVar('kode_pj')
         ]);
 
         session()->setFlashdata('berhasil', 'Penanggung Jawab berhasil ditambahkan.');
@@ -64,14 +65,28 @@ class Pj extends BaseController
         return redirect()->to('/pj/penanggung_jawab');
     }
 
-    // public function edit_jenis($id_jenis)
-    // {
-    //     $data = [
-    //         'title' => 'Edit Jenis',
-    //         'jenis' => $this->JenisModel->DetailData($id_jenis),
-    //     ];
-    //     return view('edit/edit_jenis', $data);
-    // }
+    public function edit_pj($id_pj)
+    {
+        $data = [
+            'title' => 'Edit Penanggung Jawab',
+            'pj' => $this->PjModel->DetailData($id_pj),
+        ];
+        return view('edit/edit_pj', $data);
+    }
+
+    function update($id_pj)
+    {
+        $datapj = $this->PjModel->find($id_pj);
+        if (empty($datapj)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Penanggung Jawab Tidak ditemukan !');
+        }
+        $this->PjModel->update($id_pj, [
+            'kode_pj' => $this->request->getVar('kode_pj'),
+            'penanggung_jawab' => $this->request->getVar('penanggung_jawab')
+        ]);
+        session()->setFlashdata('update', 'Data Penanggung Jawab Berhasil Diupdate');
+        return redirect()->to(site_url('penanggung_jawab'));
+    }
 
     // function kode()
     // {

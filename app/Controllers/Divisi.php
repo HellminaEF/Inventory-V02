@@ -35,14 +35,14 @@ class Divisi extends BaseController
         return view('insert/add_divisi', $data);
     }
 
-    public function edit_divisi()
-    {
-        $data = [
-            'title' => 'Edit Divisi'
-        ];
+    // public function edit_divisi()
+    // {
+    //     $data = [
+    //         'title' => 'Edit Divisi'
+    //     ];
 
-        return view('edit/edit_divisi', $data);
-    }
+    //     return view('edit/edit_divisi', $data);
+    // }
 
     public function save()
     {
@@ -55,8 +55,7 @@ class Divisi extends BaseController
         }
 
         $this->DivisiModel->save([
-            'divisi' => $this->request->getVar('divisi'),
-            'ket' => $this->request->getVar('ket')
+            'divisi' => $this->request->getVar('divisi')
         ]);
 
         session()->setFlashdata('berhasil', 'Divisi berhasil ditambahkan.');
@@ -66,12 +65,34 @@ class Divisi extends BaseController
 
     function delete($id_divisi)
     {
-        $dataJenis = $this->DivisiModel->find($id_divisi);
-        if (empty($dataJenis)) {
+        $dataDivisi = $this->DivisiModel->find($id_divisi);
+        if (empty($dataDivisi)) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Divisi Tidak ditemukan !');
         }
         $this->DivisiModel->delete($id_divisi);
         session()->setFlashdata('delete', 'Data Divisi Berhasil Dihapus');
         return redirect()->to('/divisi');
+    }
+
+    public function edit_divisi($id_divisi)
+    {
+        $data = [
+            'title' => 'Edit Divisi',
+            'divisi' => $this->DivisiModel->DetailData($id_divisi),
+        ];
+        return view('edit/edit_divisi', $data);;
+    }
+
+    function update($id_divisi)
+    {
+        $dataDivisi = $this->DivisiModel->find($id_divisi);
+        if (empty($dataDivisi)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Divisi Tidak ditemukan !');
+        }
+        $this->DivisiModel->update($id_divisi, [
+            'divisi' => $this->request->getVar('divisi')
+        ]);
+        session()->setFlashdata('update', 'Data Divisi Berhasil Diupdate');
+        return redirect()->to(site_url('divisi'));
     }
 }

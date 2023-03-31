@@ -89,11 +89,18 @@ class Jabatan extends BaseController
             'jabatan' => $this->JabatanModel->DetailData($id_jabatan),
         ];
         return view('edit/edit_jabatan', $data);
+    }
 
-        // $this->JenisModel->update($id_jenis, [
-        //     'jenis' => $this->request->getPost('jenis'),
-        // ]);
-
-        // return redirect('jenis')->with('success', 'Data Berhasil di Update');
+    function update($id_jabatan)
+    {
+        $datajabatan = $this->JabatanModel->find($id_jabatan);
+        if (empty($datajabatan)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Jabatan Tidak ditemukan !');
+        }
+        $this->JabatanModel->update($id_jabatan, [
+            'jabatan' => $this->request->getVar('jabatan')
+        ]);
+        session()->setFlashdata('update', 'Data Jabatan Berhasil Diupdate');
+        return redirect()->to(site_url('jabatan'));
     }
 }
