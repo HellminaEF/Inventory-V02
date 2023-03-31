@@ -18,4 +18,12 @@ class KdModel extends Model
             ->where('id_kdibeli', $id_kdibeli)
             ->Get()->getRow();
     }
+
+    function getJenis($id_kdibeli)
+    {
+        $komp = $this->db->table('kondisi_dibeli');
+        $komp->join('barang', 'barang.id_kdibeli = kondisi_dibeli.id_kdibeli');
+        $query = $komp->get();
+        return $query->getResult();
+    }
 }

@@ -11,15 +11,43 @@ class KaryawanModel extends Model
     protected $returnType       = "object";
     protected $useTimestamps    = true;
     protected $useSoftDeletes   = false;
-    protected $allowedFields    = ['karyawan', 'id_divisi', 'id_jabatan', 'status', 'ket'];
+    protected $allowedFields    = ['kode_karyawan', 'karyawan', 'id_divisi', 'id_jabatan', 'id_status', 'ket'];
 
     function getAll()
     {
         $builder = $this->db->table('karyawan');
         $builder->join('divisi', 'divisi.id_divisi = karyawan.id_divisi');
         $builder->join('jabatan', 'jabatan.id_jabatan = karyawan.id_jabatan');
+        $builder->join('status', 'status.id_status = karyawan.id_status');
         $query = $builder->get();
         return $query->getResult();
+    }
+
+    public function DetailData($id_karyawan)
+    {
+        $builder = $this->db->table('karyawan');
+        $builder->join('divisi', 'divisi.id_divisi = karyawan.id_divisi');
+        $builder->join('jabatan', 'jabatan.id_jabatan = karyawan.id_jabatan');
+        $builder->join('status', 'status.id_status = karyawan.id_status');
+        $query = $builder->get();
+        return $query->getResult();
+
+        return $this->db->table('karyawan')
+            ->where('id_karyawan', $id_karyawan)
+            ->Get()->getRow();
+    }
+
+    /** Fungsi UPDATE */
+
+    function edit_data($where, $table)
+    {
+        return $this->db->get_where($table, $where);
+    }
+
+    function update_data($where, $data, $table)
+    {
+        $this->db->where($where);
+        $this->db->update($table, $data);
     }
 
     // public function buat_kode()

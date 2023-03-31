@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 // use App\Models\UserModel;
+use App\Models\BarangModel;
+use App\Models\KomplainModel;
 
 class User extends BaseController
 {
@@ -10,14 +12,24 @@ class User extends BaseController
 
     function __construct()
     {
-        // $this->users = new UserModel();
         $this->session = session();
+        // $this->users = new UserModel();
+        $this->barang = new BarangModel();
+        $this->komplain = new KomplainModel();
     }
 
     public function index()
     {
+        $barangModel = new BarangModel();
+        $result = $barangModel->select('sum(harga) as sumHarga')->first();
+        $sum = $result->sumHarga;
+        $count = $this->barang->countAllResults();
+        $count1 = $this->komplain->countAllResults();
         $data = [
-            'title' => 'Dashboard | USSI Inventory'
+            'title' => 'Dashboard | USSI Inventory',
+            'count' => $count,
+            'count1' => $count1,
+            'sum' => $sum
         ];
 
         //cek apakah ada session bernama isLogin
@@ -31,12 +43,6 @@ class User extends BaseController
         }
 
         return view('user/index', $data);
-        //cek apakah ada session bernama isLogin
-        // if (!$this->session->has('isLogin')) {
-        //     return redirect()->to('/auth/login');
-        // }
-
-        // return view('user/index');
     }
 
     // public function index()

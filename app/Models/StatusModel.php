@@ -10,7 +10,6 @@ class StatusModel extends Model
     protected $primaryKey       = 'id_status';
     protected $useAutoIncrement = true;
     protected $returnType       = "object";
-    protected $useTimestamps    = true;
     protected $allowedFields    = ['status'];
 
     public function DetailData($id_status)

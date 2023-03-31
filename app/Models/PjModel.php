@@ -10,7 +10,7 @@ class PjModel extends Model
     protected $primaryKey       = 'id_pj';
     protected $returnType       = "object";
     protected $useTimestamps    = true;
-    protected $allowedFields    = ['penanggung_jawab'];
+    protected $allowedFields    = ['kode_pj', 'penanggung_jawab'];
 
     public function DetailData($id_pj)
     {

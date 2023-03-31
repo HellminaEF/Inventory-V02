@@ -10,7 +10,7 @@ class JenisModel extends Model
     protected $primaryKey       = 'id_jenis';
     protected $returnType       = "object";
     protected $useTimestamps    = true;
-    protected $allowedFields    = ['jenis'];
+    protected $allowedFields    = ['kode_jenis', 'jenis'];
 
     public function DetailData($id_jenis)
     {
@@ -19,23 +19,11 @@ class JenisModel extends Model
             ->Get()->getRow();
     }
 
-    // function generateCode()
-    // {
-    //     $builder = $this->table('jenis');
-    //     $builder->selectMax('id_barang', 'id_jenis');
-    //     $query = $builder->get();
-
-    //     if ($query->getNumRows() > 0) {
-    //         foreach ($query->getResult() as $key) {
-    //             $id = '';
-    //             $ambildata = substr($key->id_jenis, -4);
-    //             $increment = intval($ambildata) + 1;
-    //             $id = sprintf('%04s', $increment);
-    //         }
-    //     } else {
-    //         $id = '0001';
-    //     }
-
-    //     return 'J-' . $id;
-    // }
+    function getJenis($id_jenis)
+    {
+        $komp = $this->db->table('jenis');
+        $komp->join('barang', 'barang.id_jenis = jenis.id_jenis');
+        $query = $komp->get();
+        return $query->getResult();
+    }
 }
