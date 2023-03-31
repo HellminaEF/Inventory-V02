@@ -49,6 +49,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Kode</th>
                                         <th>Penanggung Jawab</th>
                                         <th>Actions</th>
                                     </tr>
@@ -58,6 +59,7 @@
                                     <?php foreach ($pj as $row) : ?>
                                         <tr>
                                             <td scope="row"><?= $i++; ?></td>
+                                            <td><?= $row->kode_pj; ?></td>
                                             <td><?= $row->penanggung_jawab; ?></td>
                                             <td>
                                                 <div class="table-data-feature">

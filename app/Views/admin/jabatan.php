@@ -35,6 +35,12 @@
                         <?= session()->getFlashdata('delete'); ?>
                     </div>
                 <?php endif; ?>
+                <?php if (session()->getFlashdata('update')) : ?>
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?= session()->getFlashdata('update'); ?>
+                    </div>
+                <?php endif; ?>
                 <div class="row m-t-30">
                     <div class="col-md-12">
                         <!-- DATA TABLE-->

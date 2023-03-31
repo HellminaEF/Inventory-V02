@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="<?= base_url(); ?>/images/icon/8.png" />
+    <link rel="icon" type="image/png" href="<?= base_url(); ?>/images/icon/uvy1.png" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
@@ -37,28 +37,29 @@
                     <span class="login100-form-title">
                         Login
                     </span>
+                    <div class="text-center">
+                        <?php
+                        $session = session();
+                        $login = $session->getFlashdata('login');
+                        $username = $session->getFlashdata('username');
+                        $password = $session->getFlashdata('password');
+                        ?>
 
-                    <?php
-                    $session = session();
-                    $login = $session->getFlashdata('login');
-                    $username = $session->getFlashdata('username');
-                    $password = $session->getFlashdata('password');
-                    ?>
+                        <?php if ($username) { ?>
+                            <p style="color:red"><?php echo $username ?></p>
+                        <?php } ?>
 
-                    <?php if ($username) { ?>
-                        <p style="color:red"><?php echo $username ?></p>
-                    <?php } ?>
+                        <?php if ($password) { ?>
+                            <p style="color:red"><?php echo $password ?></p>
+                        <?php } ?>
 
-                    <?php if ($password) { ?>
-                        <p style="color:red"><?php echo $password ?></p>
-                    <?php } ?>
-
-                    <?php if ($login) { ?>
-                        <p style="color:green"><?php echo $login ?></p>
-                    <?php } ?>
+                        <?php if ($login) { ?>
+                            <p style="color:green"><?php echo $login ?></p>
+                        <?php } ?>
+                    </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Username is required">
-                        <input class="input100" type="text" name="username" placeholder="Username">
+                        <input class="input100" type="text" name="username" placeholder="Username" autocomplete="off">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>

@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="table-responsive table-responsive-data2">
-                            <table class="table table-data2 table-condensed" style="border-collapse:collapse;">
+                            <table class="table table-data2 table-condensed table-hover" style="border-collapse:collapse;">
                                 <thead>
                                     <tr align="center">
                                         <th>ID Barang</th>
@@ -66,6 +66,9 @@
                         <!-- END DATA TABLE -->
                     </div>
                 </div>
+                <!-- <button type="submit" class="btn btn-primary mt-5 btn-md float-right">
+                    <i class="fa fa-dot-circle-o"></i> Pilih
+                </button> -->
             </div>
         </div>
     </div>

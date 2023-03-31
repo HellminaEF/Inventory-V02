@@ -10,94 +10,79 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <!-- USER DATA-->
-                        <div class="user-data m-b-30">
-                            <h3 class="title-3 m-b-30">
-                                <i class="zmdi zmdi-account-calendar"></i>user data
-                            </h3>
-                            <div class="filters m-b-45">
-                                <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
-                                    <select class="js-select2" name="property">
-                                        <option selected="selected">All Properties</option>
-                                        <option value="">Products</option>
-                                        <option value="">Services</option>
-                                    </select>
-                                    <div class="dropDownSelect2"></div>
-                                </div>
-                                <div class="rs-select2--dark rs-select2--sm rs-select2--border">
-                                    <select class="js-select2 au-select-dark" name="time">
-                                        <option selected="selected">All Time</option>
-                                        <option value="">By Month</option>
-                                        <option value="">By Day</option>
-                                    </select>
-                                    <div class="dropDownSelect2"></div>
-                                </div>
+                    <div class="col-md-12">
+                        <!-- DATA TABLE -->
+                        <h3 class="title-5 m-b-35">Data Users <button class="item" data-toggle="tooltip" data-placement="top" title="Role 1 = Admin,Role 2 = User" data-content="jika">
+                                <i class="zmdi zmdi-info"></i>
+                            </button></h3>
+                        <hr>
+                        <!-- END DATA TABLE -->
+                        <?php if (session()->getFlashdata('berhasil')) : ?>
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <?= session()->getFlashdata('berhasil'); ?>
                             </div>
-                            <div class="table-responsive table-data">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <!-- <td>
-                                                <label class="au-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="au-checkmark"></span>
-                                                </label>
-                                            </td> -->
-                                            <td>name</td>
-                                            <td>role</td>
-                                            <td>type</td>
-                                            <td></td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <!-- <td>
-                                                <label class="au-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="au-checkmark"></span>
-                                                </label>
-                                            </td> -->
+                        <?php endif; ?>
+                        <?php if (session()->getFlashdata('delete')) : ?>
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <?= session()->getFlashdata('delete'); ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (session()->getFlashdata('update')) : ?>
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <?= session()->getFlashdata('update'); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <div class="row m-t-30">
+                    <div class="col-md-12">
+                        <!-- DATA TABLE-->
+                        <!-- <div class="table-responsive m-b-40">
+                            <table class="table table-borderless table-data3"> -->
+                        <div class="table-responsive table-responsive-data2">
+                            <table class="table table-data2 table-condensed display dataTable" style="border-collapse:collapse;">
+                                <thead align="center">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Username</th>
+                                        <th>Role</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="center">
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($user as $key => $value) : ?>
+                                        <tr class="tr-shadow accordion-toggle" data-toggle="collapse" data-target="#demo1">
+                                            <td><?= $i++; ?></td>
+                                            <td><?= $value->username; ?></td>
+                                            <td><?= $value->role; ?></td>
                                             <td>
-                                                <div class="table-data__info">
-                                                    <h6>lori lynch</h6>
-                                                    <span>
-                                                        <a href="#">johndoe@gmail.com</a>
-                                                    </span>
+                                                <div class="table-data-feature">
+                                                    <!-- <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
+                                                    <i class="zmdi zmdi-mail-send"></i>
+                                                </button> -->
+                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("Admin/edit_user/$value->id_user") ?>">
+                                                        <i class="zmdi zmdi-edit"></i>
+                                                    </a>
+                                                    <a class="item" data-toggle="tooltip" href="<?= base_url("Admin/delete/$value->id_user") ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini ?')" title="Delete">
+                                                        <i class="zmdi zmdi-delete"></i>
+                                                    </a>
                                                 </div>
                                             </td>
-                                            <td>
-                                                <span class="role admin">admin</span>
-                                            </td>
-                                            <td>
-                                                <div class="rs-select2--trans rs-select2--sm">
-                                                    <select class="js-select2" name="property">
-                                                        <option selected="selected">Full Control</option>
-                                                        <option value="">Post</option>
-                                                        <option value="">Watch</option>
-                                                    </select>
-                                                    <div class="dropDownSelect2"></div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <span class="more">
-                                                    <i class="zmdi zmdi-more"></i>
-                                                </span>
-                                            </td>
                                         </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="user-data__footer">
-                                <button class="au-btn au-btn-load">load more</button>
-                            </div>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
                         </div>
-                        <!-- END USER DATA-->
+                        <!-- END DATA TABLE-->
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-12">
             <div class="copyright">
@@ -106,5 +91,6 @@
         </div>
     </div>
 </div>
+
 
 <?= $this->endSection(); ?>

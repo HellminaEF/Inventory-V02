@@ -49,6 +49,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Kode</th>
                                         <th>Jenis Barang</th>
                                         <th>Actions</th>
                                     </tr>
@@ -57,11 +58,12 @@
                                     <?php $i = 1; ?>
                                     <?php foreach ($jenis as $row) : ?>
                                         <tr>
-                                            <td><?= $i++; ?></td>
+                                            <td scope="row"><?= $i++; ?></td>
+                                            <td><?= $row->kode_jenis; ?></td>
                                             <td><?= $row->jenis; ?></td>
                                             <td>
                                                 <div class="table-data-feature">
-                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("jenis/edit_jenis") ?>">
+                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url("jenis/edit_jenis/$row->id_jenis") ?>">
                                                         <i class="zmdi zmdi-edit"></i>
                                                     </a>
                                                     <a class="item" data-toggle="tooltip" href="<?= base_url("jenis/delete/$row->id_jenis") ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini ?')" title="Delete">

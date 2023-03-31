@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- DATA TABLE -->
-                        <h3 class="title-5 m-b-35">Data Kondisi Barang Saat Dibeli</h3>
+                        <h3 class="title-5 m-b-35">Data Kondisi Sekarang</h3>
                         <hr>
                         <div class="table-data__tool">
                             <div class="table-data__tool-right">
