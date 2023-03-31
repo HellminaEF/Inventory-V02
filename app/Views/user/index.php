@@ -30,13 +30,10 @@
                                     <div class="icon">
                                         <!-- <i class="zmdi zmdi-account-o"></i> -->
                                     </div>
-                                    <div class="text">
+                                    <div class="overview-chart">
                                         <h5>Total Data Inventaris</h5>
-                                        <span></span>
+                                        <h2><?= $count ?></h2>
                                     </div>
-                                </div>
-                                <div class="overview-chart">
-                                    <canvas></canvas>
                                 </div>
                             </div>
                         </div>
@@ -66,13 +63,10 @@
                                     <div class="icon">
                                         <!-- <i class="zmdi zmdi-calendar-note"></i> -->
                                     </div>
-                                    <div class="text">
-                                        <h5>Total Barang Rusak</h5>
-                                        <span></span>
+                                    <div class="overview-chart">
+                                        <h5>Jumlah Komplain</h5>
+                                        <h2><?= $count1 ?></h2>
                                     </div>
-                                </div>
-                                <div class="overview-chart">
-                                    <canvas></canvas>
                                 </div>
                             </div>
                         </div>
@@ -84,13 +78,10 @@
                                     <div class="icon">
                                         <!-- <i class="zmdi zmdi-money"></i> -->
                                     </div>
-                                    <div class="text">
+                                    <div class="overview-chart">
                                         <h5>Total Harga</h5>
-                                        <span></span>
+                                        <h2><?= $sum ?></h2>
                                     </div>
-                                </div>
-                                <div class="overview-chart">
-                                    <canvas></canvas>
                                 </div>
                             </div>
                         </div>

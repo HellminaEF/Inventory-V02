@@ -16,9 +16,9 @@
                                 <div class="bg-overlay bg-overlay--black"></div>
                                 <h3>
                                     <!-- <i class="fas fa-frown-o"></i> -->
-                                    Form Komplain
+                                    History Barang
                                 </h3>
-                                <a class="au-btn-plus" href="<?= base_url('add_komplain') ?>">
+                                <a class="au-btn-plus" href="<?= base_url('add_history') ?>">
                                     <i class="zmdi zmdi-plus"></i>
                                 </a>
                             </div>
@@ -34,23 +34,24 @@
                                             <table class="table table-data2 table-condensed" style="border-collapse:collapse;">
                                                 <thead>
                                                     <tr align="center">
-                                                        <th>ID</th>
+                                                        <th>No</th>
                                                         <th>Tanggal</th>
-                                                        <th>Nama Barang</th>
-                                                        <th>Keluhan</th>
-                                                        <th></th>
+                                                        <th>Barang</th>
+                                                        <th>Karyawan</th>
+                                                        <th>keterangan</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php $i = 1; ?>
-                                                    <?php foreach ($komplain as $key => $value) : ?>
+                                                    <?php foreach ($history as $key => $value) : ?>
                                                         <tr class="tr-shadow accordion-toggle" align="center" data-toggle="collapse" data-target="#demo1">
                                                             <td scope="row"><?= $i++; ?></td>
-                                                            <td><?= $value->t_komplain; ?></td>
-                                                            <td><?= $value->barang; ?> <?= $value->merk; ?></td>
+                                                            <td><?= $value->t_history; ?></td>
+                                                            <td><?= $value->barang; ?></td>
+                                                            <td><?= $value->karyawan; ?></td>
                                                             <td><?= $value->keterangan; ?></td>
-                                                            <td><span class="badge badge-info"><?= $value->approve; ?></span></td>
                                                         </tr>
+                                                        <tr class="spacer"></tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
                                             </table>

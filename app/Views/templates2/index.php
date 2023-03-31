@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- ====================Title Page==================== -->
-    <link rel="icon" type="image/png" href="<?= base_url(); ?>/images/icon/8.png" />
+    <link rel="icon" type="image/png" href="<?= base_url(); ?>/images/icon/uvy1.png" />
 
     <!-- ====================Fontfaces CSS==================== -->
     <link href="<?= base_url(); ?>/css/font-face.css" rel="stylesheet" media="all">
@@ -20,6 +20,7 @@
 
     <!-- ====================Bootstrap CSS====================-->
     <link href="<?= base_url(); ?>/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.3/datatables.min.css" rel="stylesheet" />
 
     <!-- ====================Vendor CSS==================== -->
     <link href="<?= base_url(); ?>/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -43,7 +44,9 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="#">
-                            <img src="<?= base_url(); ?>/images/icon/c4.png" alt="USSI_Inventory" />
+                            <div class="mobile_img">
+                                <img src="<?= base_url(); ?>/images/icon/uvy2.png" alt="USSI_Inventory" />
+                            </div>
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -56,17 +59,13 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li class="active">
+                        <li>
                             <a class="js-arrow" href="<?= base_url('user') ?>">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a class="js-arrow" href="<?= base_url('u_barang') ?>">
-                                <i class="fas fa-tachometer-alt"></i>Barang Inventaris</a>
-                        </li>
-                        <li>
-                            <a class="js-arrow" href="<?= base_url('comment') ?>">
-                                <i class="fas fa-tachometer-alt"></i>Form Keluhan</a>
+                            <a class="js-arrow" href="<?= base_url('u_komplain') ?>">
+                                <i class="fas fa-dot-circle-o"></i>Form Komplain</a>
                         </li>
                     </ul>
                 </div>
@@ -87,6 +86,7 @@
     <!-- ====================Bootstrap JS==================== -->
     <script src="<?= base_url(); ?>/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="<?= base_url(); ?>/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.13.3/datatables.min.js"></script>
     <!-- ====================Vendor JS==================== -->
     <script src="<?= base_url(); ?>/vendor/slick/slick.min.js">
     </script>
@@ -100,8 +100,7 @@
     <script src="<?= base_url(); ?>/vendor/circle-progress/circle-progress.min.js"></script>
     <script src="<?= base_url(); ?>/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="<?= base_url(); ?>/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="<?= base_url(); ?>/vendor/select2/select2.min.js">
-    </script>
+    <script src="<?= base_url(); ?>/vendor/select2/select2.min.js"></script>
 
     <!-- ====================Main JS==================== -->
     <script src="<?= base_url(); ?>/js/main.js"></script>

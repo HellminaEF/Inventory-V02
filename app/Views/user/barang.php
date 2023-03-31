@@ -23,9 +23,6 @@
                                 <div class="rs-select2--light rs-select2--md">
                                     <select class="js-select2" name="property">
                                         <option value="selected">Semua Jenis</option>
-                                        <?php foreach ($jenis as $key => $value) : ?>
-                                            <option value="<?= $value->id_jenis ?>"><?= $value->jenis ?></option>
-                                        <?php endforeach; ?>
                                     </select>
                                     <div class="dropDownSelect2"></div>
                                 </div>
@@ -49,26 +46,31 @@
                             <table class="table table-data2 table-condensed" style="border-collapse:collapse;">
                                 <thead>
                                     <tr align="center">
+                                        <th>Kode Trans</th>
+                                        <th>Tanggal Trans</th>
                                         <th>ID Barang</th>
                                         <th>Nama Barang</th>
                                         <th>Merk</th>
-                                        <th>Jenis Barang</th>
-                                        <th>Tanggal Peroleh</th>
-                                        <th>Masa Guna</th>
-                                        <th>Harga</th>
+                                        <th>Nama Karyawan</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php $i = 1; ?>
-                                    <?php foreach ($barang as $key => $value) : ?>
-                                        <tr class="tr-shadow accordion-toggle" align="center" data-toggle="collapse" data-target="#demo1">
-                                            <td scope="row"><?= $i++; ?></td>
+                                <tbody align="center">
+                                    <?php foreach ($transaksi as $key => $value) : ?>
+                                        <tr class="tr-shadow accordion-toggle" data-toggle="collapse" data-target="#demo1">
+                                            <td><?= $value->kode_trans; ?></td>
+                                            <td><?= $value->t_trans; ?></td>
+                                            <td><?= $value->kode_barang; ?></td>
                                             <td><?= $value->barang; ?></td>
                                             <td><?= $value->merk; ?></td>
-                                            <td><?= $value->jenis; ?></td>
-                                            <td><?= $value->tperoleh; ?></td>
-                                            <td><?= $value->masa_guna; ?> Bulan</td>
-                                            <td>RP <?= $value->harga; ?></td>
+                                            <td><?= $value->karyawan; ?></td>
+                                            <td>
+                                                <div class="table-data-feature">
+                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Detail" href="#">
+                                                        <i class="zmdi zmdi-info"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr class="spacer"></tr>
                                     <?php endforeach; ?>

@@ -1,7 +1,7 @@
 <!-- HEADER DESKTOP-->
 <header class="header-desktop">
     <title><?= $title; ?></title>
-    <link rel="icon" type="image/png" href="<?= base_url(); ?>/images/icon/8.png" />
+    <link rel="icon" type="image/png" href="<?= base_url(); ?>/images/icon/ui7.png" />
     <div class="section__content section__content--p30">
         <div class="container-fluid">
             <div class="header-wrap">
