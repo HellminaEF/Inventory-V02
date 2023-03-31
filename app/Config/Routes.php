@@ -19,6 +19,7 @@ $routes->set404Override();
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
+$routes->setAutoRoute(true);
 // $routes->setAutoRoute(false);
 
 /*
@@ -29,18 +30,66 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('/admin', 'Home::admin');
-$routes->get('/jenis', 'Home::jenis');
-$routes->get('/divisi', 'Home::divisi');
-$routes->get('/karyawan', 'Home::karyawan');
-$routes->get('/barang', 'Home::barang');
-$routes->get('/transaksi', 'Home::transaksi');
-$routes->get('/add_jenis', 'Home::add_jenis');
-$routes->get('/add_karyawan', 'Home::add_karyawan');
-$routes->get('/add_divisi', 'Home::add_divisi');
-$routes->get('/jabatan', 'Home::jabatan');
-$routes->get('/add_jabatan', 'Home::add_jabatan');
+$routes->get('/login', 'Auth::login');
+$routes->get('/register', 'Auth::register');
+
+$routes->get('/logout', 'Auth::logout');
+
+$routes->get('/register', 'Register::index');
+$routes->post('/register/process', 'Register::process');
+
+// Admin
+
+$routes->get('/admin', 'Admin::index');
+
+$routes->get('/jenis', 'Jenis::jenis');
+$routes->get('/add_jenis', 'Jenis::add_jenis');
+$routes->post('/save_jenis', 'Jenis::save_jenis');
+$routes->post('jenis/update/(:num)', 'jenis::update/$1');
+$routes->get('autokode/kode', 'jenis::kode');
+
+$routes->get('/divisi', 'Divisi::divisi');
+$routes->get('/add_divisi', 'Divisi::add_divisi');
+$routes->post('/save_divisi', 'Divisi::save_divisi');
+
+$routes->get('/karyawan', 'Karyawan::karyawan');
+$routes->get('/add_karyawan', 'Karyawan::add_karyawan');
+$routes->post('/save_karyawan', 'Karyawan::save_karyawan');
+
+$routes->get('/barang', 'Barang::barang');
+$routes->get('/add_barang', 'Barang::add_barang');
+$routes->post('/save_barang', 'Barang::save_barang');
+$routes->get('/det_barang/(:num)', 'Barang::det_barang/$1');
+$routes->get('barang/kode', 'Barang::kode');
+
+$routes->get('/transaksi', 'transaksi::transaksi');
+
+$routes->get('/penanggung_jawab', 'Pj::penanggung_jawab');
+$routes->get('/kondisi_dibeli', 'Kondisi_dibeli::kondisi_dibeli');
+$routes->get('/kondisi_sekarang', 'Kondisi_sekarang::kondisi_sekarang');
+$routes->get('/kode_trans', 'Kode_trans::kode_trans');
+
+$routes->get('/jabatan', 'Jabatan::jabatan');
+$routes->get('/add_jabatan', 'Jabatan::add_jabatan');
+$routes->post('/save_jabatan', 'Jabatan::save_jabatan');
+
+$routes->get('/status', 'Status::status');
+
+$routes->get('/history', 'History::history');
+
+$routes->get('/komplain', 'Komplain::komplain');
+
+$routes->get('/users', 'Admin::users');
+$routes->get('/edit_user', 'Admin::edit_user');
+
+// User
+
+$routes->get('/user', 'User::index');
+$routes->get('/u_barang', 'U_barang::u_barang');
+$routes->get('/u_komplain', 'Komplain::u_komplain');
+$routes->get('/add_komplain', 'Komplain::add_komplain');
+$routes->get('/u_history', 'History::u_history');
+$routes->get('/add_history', 'History::add_history');
 
 /*
  * --------------------------------------------------------------------
