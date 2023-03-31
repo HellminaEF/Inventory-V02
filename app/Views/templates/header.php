@@ -1,5 +1,7 @@
 <!-- HEADER DESKTOP-->
 <header class="header-desktop">
+    <title><?= $title; ?></title>
+    <link rel="icon" type="image/png" href="<?= base_url(); ?>/images/icon/ui7.png" />
     <div class="section__content section__content--p30">
         <div class="container-fluid">
             <div class="header-wrap">
@@ -9,7 +11,7 @@
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image rounded-circle">
-                                <img src="images/icon/default.jpg" alt="name" />
+                                <img src="/images/icon/default.jpg" alt="name" />
                             </div>
                             <div class="content">
                                 <a class="js-acc-btn" href="#"></a>
@@ -18,7 +20,7 @@
                                 <div class="info clearfix">
                                     <div class="image rounded-circle">
                                         <a href="#">
-                                            <img src="images/icon/default.jpg" alt="name" />
+                                            <img src="/images/icon/default.jpg" alt="name" />
                                         </a>
                                     </div>
                                     <div class="content">
@@ -28,14 +30,14 @@
                                         <span>Admin</span>
                                     </div>
                                 </div>
-                                <div class="account-dropdown__body">
+                                <!-- <div class="account-dropdown__body">
                                     <div class="account-dropdown__item">
                                         <a href="#">
-                                            <i class="zmdi zmdi-account"></i>Account</a>
+                                            <i class="zmdi zmdi-account"></i>Edit Profile</a>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="account-dropdown__footer">
-                                    <a href="<?= base_url('/') ?>">
+                                    <a href="<?= base_url('logout') ?>">
                                         <i class="zmdi zmdi-power"></i>Logout</a>
                                 </div>
                             </div>
