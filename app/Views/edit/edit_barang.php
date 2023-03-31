@@ -13,18 +13,46 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header bg-secondary text-white">
-                                <a type="button" class="btn btn-secondary btn-sm mr-3" href="/barang/barang"><- Back</a>
-                                        Edit <strong>Barang</strong>
+                                <a type="button" class="btn btn-secondary btn-sm mr-3" href="/barang/barang"><i class="fas fa-reply"></i> Back</a>
+                                Edit <strong>Barang</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="/barang/edit_barang" method="post" class="form-horizontal">
+                                <form action="<?= base_url('barang/update/' . $barang->id_barang); ?>" method="post" class="form-horizontal">
                                     <?= csrf_field(); ?>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="id_barang" class=" form-control-label">ID Barang</label>
+                                            <label for="id_jenis" class=" form-control-label">Jenis Barang</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="id_barang" name="id_barang" class="form-control">
+                                            <select name="id_jenis" class="form-control" autocomplete="off" required>
+                                                <option value="" hidden>- Pilih -</option>
+                                                <?php foreach ($jenis as $key => $value) : ?>
+                                                    <option value="<?= $value->id_jenis ?>" <?= $barang->id_jenis == $value->id_jenis ? 'selected' : null; ?>>
+                                                        <?= $value->jenis ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="id_pj" class=" form-control-label">Penanggung Jawab</label>
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <select name="id_pj" class="form-control" autocomplete="off" required>
+                                                <option value="" hidden>- Pilih Penanggung Jawab -</option>
+                                                <?php foreach ($pj as $key => $value) : ?>
+                                                    <option value="<?= $value->id_pj ?>" <?= $barang->id_pj == $value->id_pj ? 'selected' : null; ?>>
+                                                        <?= $value->penanggung_jawab ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="kode_barang" class=" form-control-label">Kode Barang</label>
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <input type="text" id="kode_barang" name="kode_barang" class="form-control" value="<?= $barang->kode_barang; ?>" readonly>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -32,7 +60,7 @@
                                             <label for="barang" class=" form-control-label">Nama Barang</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="barang" name="barang" class="form-control" required="required" autofocus>
+                                            <input type="text" id="barang" name="barang" class="form-control" required="required" value="<?= $barang->barang; ?>" autocomplete="off" autofocus>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -40,16 +68,20 @@
                                             <label for="merk" class=" form-control-label">Merk</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="merk" name="merk" class="form-control" required="required">
+                                            <input type="text" id="merk" name="merk" class="form-control" value="<?= $barang->merk; ?>" autocomplete="off" required="required">
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="id_jenis" class=" form-control-label">Jenis Barang</label>
+                                            <label for="id_kdibeli" class=" form-control-label">Kondisi Barang</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <select name="jenis" class="form-control">
+                                            <select name="id_kdibeli" class="form-control" autocomplete="off" required>
                                                 <option value="" hidden>- Pilih -</option>
+                                                <?php foreach ($kd as $key => $value) : ?>
+                                                    <option value="<?= $value->id_kdibeli ?>" <?= $barang->id_kdibeli == $value->id_kdibeli ? 'selected' : null; ?>>
+                                                        <?= $value->kondisi_dibeli ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>
@@ -58,7 +90,7 @@
                                             <label for="tperoleh" class="form-control-label">Tanggal Peroleh</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="date" id="tperoleh" name="tperoleh" class="form-control" required="required">
+                                            <input type="date" id="tperoleh" name="tperoleh" class="form-control" value="<?= $barang->tperoleh; ?>" autocomplete="off" required="required">
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -66,7 +98,7 @@
                                             <label for="masa_guna" class=" form-control-label">Masa Guna (bulan)</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="masa_guna" name="masa_guna" class="form-control" required="required">
+                                            <input type="text" id="masa_guna" name="masa_guna" class="form-control" value="<?= $barang->masa_guna; ?>" autocomplete="off" required="required">
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -74,17 +106,41 @@
                                             <label for="harga" class=" form-control-label">Harga</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="harga" name="harga" class="form-control" required="required">
+                                            <input type="text" id="dengan-rupiah" name="harga" class="form-control" value="<?= $barang->harga; ?>" autocomplete="off" required="required">
                                         </div>
                                     </div>
+                                    <script>
+                                        /* Dengan Rupiah */
+                                        var dengan_rupiah = document.getElementById('dengan-rupiah');
+                                        dengan_rupiah.addEventListener('keyup', function(e) {
+                                            dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+                                        });
+
+                                        /* Fungsi */
+                                        function formatRupiah(angka, prefix) {
+                                            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                                                split = number_string.split(','),
+                                                sisa = split[0].length % 3,
+                                                rupiah = split[0].substr(0, sisa),
+                                                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+                                            if (ribuan) {
+                                                separator = sisa ? '.' : '';
+                                                rupiah += separator + ribuan.join('.');
+                                            }
+
+                                            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                                            return prefix == undefined ? rupiah : (rupiah ? ' ' + rupiah : '');
+                                        }
+                                    </script>
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary btn-sm">
                                     <i class="fa fa-dot-circle-o"></i> Simpan
                                 </button>
-                                <!-- <button type="reset" class="btn btn-danger btn-sm">
+                                <button type="reset" class="btn btn-danger btn-sm">
                                     <i class="fa fa-ban"></i> Reset
-                                </button> -->
+                                </button>
                                 <!-- <button type="button" class="btn btn-primary btn-sm float-right" href="#">
                                     Next <i class="fa fa-chevron-right"></i>
                                 </button> -->

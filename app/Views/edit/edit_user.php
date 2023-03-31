@@ -12,26 +12,29 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header bg-secondary text-white">
-                            <a type="button" class="btn btn-secondary btn-sm mr-3" href="/pj/penanggung_jawab"><i class="fas fa-reply"></i> Back</a>
-                            Edit Data<strong>Penanggung Jawab</strong>
+                            <a type="button" class="btn btn-secondary btn-sm mr-3" href="<?= base_url('users') ?>"><i class="fas fa-reply"></i> Back</a>
+                            Edit <strong>Data User</strong>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Role 1 = Admin,Role 2 = User" data-content="jika">
+                                <i class="zmdi zmdi-info"></i>
+                            </button>
                         </div>
                         <div class="card-body card-block">
-                            <form action="<?= base_url('pj/update/' . $pj->id_pj); ?>" method="post" class="form-horizontal">
+                            <form action="<?= base_url('Admin/update/' . $user->id_user); ?>" method="post" class="form-horizontal">
                                 <?= csrf_field(); ?>
                                 <div class="row form-group">
                                     <div class="col col-md-3">
-                                        <label for="kode_pj" class="form-control-label">Kode Penanggung Jawab</label>
+                                        <label for="username" class="form-control-label">Username</label>
                                     </div>
                                     <div class="form-group col-md-7">
-                                        <input type="text" id="kode_pj" name="kode_pj" class="form-control" value="<?= $pj->kode_pj; ?>" autocomplete="off" autofocus>
+                                        <input type="text" id="username" name="username" class="form-control" value="<?= $user->username; ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3">
-                                        <label for="penanggung_jawab" class="form-control-label">Penanggung Jawab</label>
+                                        <label for="role" class="form-control-label">Role</label>
                                     </div>
                                     <div class="form-group col-md-7">
-                                        <input type="text" id="penanggung_jawab" name="penanggung_jawab" class="form-control" value="<?= $pj->penanggung_jawab; ?>" autocomplete="off">
+                                        <input type="text" id="role" name="role" class="form-control" value="<?= $user->role; ?>" autocomplete="off" autofocus>
                                     </div>
                                 </div>
                         </div>

@@ -17,28 +17,20 @@
                                 Edit <strong>Jabatan</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="/jabatan/edit_jabatan" method="post" class="form-horizontal">
+                                <form action="<?= base_url('jabatan/update/' . $jabatan->id_jabatan); ?>" method="post" class="form-horizontal">
                                     <?= csrf_field(); ?>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <label for="id_jabatan" class=" form-control-label">ID Jabatan</label>
-                                        </div>
-                                        <div class="form-group col-md-7">
-                                            <input type="text" id="id_jabatan" name="id_jabatan" class="form-control" value="<?= $jabatan->id_jabatan; ?>" readonly="">
-                                        </div>
-                                    </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="jabatan" class=" form-control-label">Jabatan</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="jabatan" name="jabatan" class="form-control" required="required" value="<?= $jabatan->jabatan; ?>" autofocus>
+                                            <input type="text" id="jabatan" name="jabatan" class="form-control" required="required" value="<?= $jabatan->jabatan; ?>" autocomplete="off" autofocus>
                                         </div>
                                     </div>
                             </div>
                             <div class="card-footer">
                                 <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-primary btn-sm">
+                                    <button type="update" class="btn btn-primary btn-sm">
                                         <i class="fa fa-dot-circle-o"></i> Simpan
                                     </button>
                                 </div>

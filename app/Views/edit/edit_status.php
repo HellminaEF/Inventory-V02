@@ -16,28 +16,20 @@
                             Edit <strong>Status</strong>
                         </div>
                         <div class="card-body card-block">
-                            <form action="/status/edit_status" method="post" class="form-horizontal">
+                            <form action="<?= base_url('status/update/' . $status->id_status); ?>" method="post" class="form-horizontal">
                                 <?= csrf_field(); ?>
-                                <div class="row form-group">
-                                    <div class="col col-md-3">
-                                        <label for="id_status" class="form-control-label">ID Status</label>
-                                    </div>
-                                    <div class="form-group col-md-7">
-                                        <input type="text" id="id_status" name="id_status" class="form-control" value="<?= $status->id_status; ?>" readonly="">
-                                    </div>
-                                </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="status" class="form-control-label">Status</label>
                                     </div>
                                     <div class="form-group col-md-7">
-                                        <input type="text" class="form-control" value="<?= $status->status; ?>" id="status" name="status" autofocus value="<?= old('status'); ?>">
+                                        <input type="text" class="form-control" value="<?= $status->status; ?>" id="status" name="status" autofocus autocomplete="off">
                                     </div>
                                 </div>
                         </div>
                         <div class="card-footer">
                             <div class="col-sm-10">
-                                <button type="Submit" class="btn btn-primary btn-sm">
+                                <button type="update" class="btn btn-primary btn-sm">
                                     <i class="fa fa-dot-circle-o"></i> Simpan
                                 </button>
                             </div>

@@ -13,32 +13,32 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header bg-secondary text-white">
-                                <a type="button" class="btn btn-secondary btn-sm mr-3" href="/jabatan/jabatan"><i class="fas fa-reply"></i> Back</a>
-                                Edit <strong>Jabatan</strong>
+                                <a type="button" class="btn btn-secondary btn-sm mr-3" href="/kode_trans"><i class="fas fa-reply"></i> Back</a>
+                                Edit <strong>Kode Transaksi</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="/jabatan/edit_jabatan" method="post" class="form-horizontal">
+                                <form action="<?= base_url('kode_trans/update/' . $kt->id_ktrans); ?>" method="post" class="form-horizontal">
                                     <?= csrf_field(); ?>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="id_jabatan" class=" form-control-label">ID Jabatan</label>
+                                            <label for="kode_trans" class=" form-control-label">Kode Transaksi</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="id_jabatan" name="id_jabatan" class="form-control" value="<?= $jabatan->id_jabatan; ?>" readonly="">
+                                            <input type="text" id="kode_trans" name="kode_trans" class="form-control" required="required" value="<?= $kt->kode_trans; ?>" autocomplete="off" autofocus>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="jabatan" class=" form-control-label">Jabatan</label>
+                                            <label for="jenis_trans" class=" form-control-label">Nama Transaksi</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="jabatan" name="jabatan" class="form-control" required="required" value="<?= $jabatan->jabatan; ?>" autofocus>
+                                            <input type="text" id="jenis_trans" name="jenis_trans" class="form-control" required="required" value="<?= $kt->jenis_trans; ?>" autocomplete="off">
                                         </div>
                                     </div>
                             </div>
                             <div class="card-footer">
                                 <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-primary btn-sm">
+                                    <button type="update" class="btn btn-primary btn-sm">
                                         <i class="fa fa-dot-circle-o"></i> Simpan
                                     </button>
                                 </div>

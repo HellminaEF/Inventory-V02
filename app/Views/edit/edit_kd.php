@@ -12,26 +12,18 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header bg-secondary text-white">
-                            <a type="button" class="btn btn-secondary btn-sm mr-3" href="/pj/penanggung_jawab"><i class="fas fa-reply"></i> Back</a>
-                            Edit Data<strong>Penanggung Jawab</strong>
+                            <a type="button" class="btn btn-secondary btn-sm mr-3" href="/kondisi_dibeli"><i class="fas fa-reply"></i> Back</a>
+                            Edit Data<strong>Kondisi Dibeli</strong>
                         </div>
                         <div class="card-body card-block">
-                            <form action="<?= base_url('pj/update/' . $pj->id_pj); ?>" method="post" class="form-horizontal">
+                            <form action="<?= base_url('kondisi_dibeli/update/' . $kd->id_kdibeli); ?>" method="post" class="form-horizontal">
                                 <?= csrf_field(); ?>
                                 <div class="row form-group">
                                     <div class="col col-md-3">
-                                        <label for="kode_pj" class="form-control-label">Kode Penanggung Jawab</label>
+                                        <label for="kondisi_dibeli" class="form-control-label">Kondisi Barang Saat Dibeli</label>
                                     </div>
                                     <div class="form-group col-md-7">
-                                        <input type="text" id="kode_pj" name="kode_pj" class="form-control" value="<?= $pj->kode_pj; ?>" autocomplete="off" autofocus>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col col-md-3">
-                                        <label for="penanggung_jawab" class="form-control-label">Penanggung Jawab</label>
-                                    </div>
-                                    <div class="form-group col-md-7">
-                                        <input type="text" id="penanggung_jawab" name="penanggung_jawab" class="form-control" value="<?= $pj->penanggung_jawab; ?>" autocomplete="off">
+                                        <input type="text" id="kondisi_dibeli" name="kondisi_dibeli" class="form-control" value="<?= $kd->kondisi_dibeli; ?>" autocomplete="off" autofocus>
                                     </div>
                                 </div>
                         </div>
