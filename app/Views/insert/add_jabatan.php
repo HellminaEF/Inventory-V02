@@ -32,7 +32,7 @@
                                             <label for="jabatan" class=" form-control-label">Jabatan</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="jabatan" name="jabatan" class="form-control" required="required" autofocus>
+                                            <input type="text" id="jabatan" name="jabatan" class="form-control" required="required" autocomplete="off" autofocus>
                                         </div>
                                     </div>
                             </div>

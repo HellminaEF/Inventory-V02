@@ -28,10 +28,18 @@
                                 </div> -->
                                 <div class="row form-group">
                                     <div class="col col-md-3">
+                                        <label for="kode_jenis" class="form-control-label">Kode Jenis</label>
+                                    </div>
+                                    <div class="form-group col-md-7">
+                                        <input type="text" id="kode_jenis" name="kode_jenis" class="form-control" autocomplete="off" required="required" autofocus>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
                                         <label for="jenis" class="form-control-label">Jenis Barang</label>
                                     </div>
                                     <div class="form-group col-md-7">
-                                        <input type="text" id="jenis" name="jenis" class="form-control" required="required" autofocus>
+                                        <input type="text" id="jenis" name="jenis" class="form-control" autocomplete="off" required="required">
                                     </div>
                                 </div>
                         </div>

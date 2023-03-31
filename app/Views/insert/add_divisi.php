@@ -31,7 +31,7 @@
                                         <label for="divisi" class="form-control-label">Nama Divisi</label>
                                     </div>
                                     <div class="form-group col-md-7">
-                                        <input type="text" class="form-control" id="divisi" name="divisi" autofocus value="<?= old('divisi'); ?>">
+                                        <input type="text" class="form-control" id="divisi" name="divisi" autocomplete="off" autofocus value="<?= old('divisi'); ?>">
                                         <div class="invalid-feedback">
                                         </div>
                                     </div>

@@ -14,17 +14,22 @@
                         <div class="card">
                             <div class="card-header bg-secondary text-white">
                                 <a type="button" class="btn btn-secondary btn-sm mr-3" href="/transaksi"><i class="fas fa-reply"></i> Back</a>
-                                Tambah <strong>Karyawan</strong>
+                                Buat <strong>Transaksi</strong>
                             </div>
                             <div class="card-body card-block">
                                 <form action="/transaksi/create" method="post" class="form-horizontal">
                                     <?= csrf_field(); ?>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="id_trans" class=" form-control-label">ID Transaksi</label>
+                                            <label for="id_ktrans" class=" form-control-label">Kode Transaksi</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="id_trans" name="id_trans" class="form-control" readonly="">
+                                            <select type="text" id="id_ktrans" name="id_ktrans" class="form-control" autofocus>
+                                                <option value="" hidden>- Pilih -</option>
+                                                <?php foreach ($kodetrans as $key => $value) : ?>
+                                                    <option value="<?= $value->id_ktrans ?>"><?= $value->jenis_trans; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -32,7 +37,7 @@
                                             <label for="t_trans" class=" form-control-label">Tanggal transaksi</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="date" id="t_trans" name="t_trans" class="form-control" autofocus>
+                                            <input type="date" id="t_trans" name="t_trans" class="form-control" required="required" autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -40,10 +45,10 @@
                                             <label for="id_barang" class=" form-control-label">Barang</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <select name="id_barang" class="form-control selectpicker" data-live-search="true">
+                                            <select name="id_barang" class="form-control selectpicker" required="required" data-live-search="true" autocomplete="off">
                                                 <option value="" hidden>- Pilih -</option>
                                                 <?php foreach ($barang as $key => $value) : ?>
-                                                    <option value="<?= $value->id_barang ?>"><?= $value->id_barang; ?> | <?= $value->barang ?></option>
+                                                    <option value="<?= $value->id_barang ?>"><?= $value->kode_barang; ?> (<?= $value->merk ?>)</option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
@@ -53,10 +58,10 @@
                                             <label for="id_karyawan" class=" form-control-label">Karyawan</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <select name="id_karyawan" class="form-control">
+                                            <select name="id_karyawan" class="form-control" required="required" autocomplete="off">
                                                 <option value="" hidden>- Pilih -</option>
                                                 <?php foreach ($karyawan as $key => $value) : ?>
-                                                    <option value="<?= $value->id_karyawan ?>"><?= $value->id_karyawan; ?> | <?= $value->karyawan ?></option>
+                                                    <option value="<?= $value->id_karyawan ?>"><?= $value->karyawan ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
@@ -66,7 +71,7 @@
                                             <label for="ket" class=" form-control-label">Keterangan</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <textarea class="form-control" rows="3" name="ket" id="ket" placeholder="Berikan keterangan.."></textarea>
+                                            <textarea class="form-control" rows="3" name="ket" id="ket" placeholder="Berikan keterangan.." autocomplete="off"></textarea>
                                         </div>
                                     </div>
                             </div>

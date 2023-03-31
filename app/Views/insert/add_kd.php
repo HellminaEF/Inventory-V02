@@ -31,7 +31,7 @@
                                         <label for="kondisi_dibeli" class="form-control-label">Kondisi Barang Saat Dibeli</label>
                                     </div>
                                     <div class="form-group col-md-7">
-                                        <input type="text" id="kondisi_dibeli" name="kondisi_dibeli" class="form-control" required="required" autofocus>
+                                        <input type="text" id="kondisi_dibeli" name="kondisi_dibeli" class="form-control" required="required" autocomplete="off" autofocus>
                                     </div>
                                 </div>
                         </div>

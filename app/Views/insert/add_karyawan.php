@@ -21,10 +21,10 @@
                                     <?= csrf_field(); ?>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="id" class=" form-control-label">ID Karyawan</label>
+                                            <label for="kode_karyawan" class=" form-control-label">ID Karyawan</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="id" name="id" class="form-control" readonly="">
+                                            <input type="text" id="kode_karyawan" name="kode_karyawan" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -32,7 +32,7 @@
                                             <label for="karyawan" class=" form-control-label">Nama Karyawan</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="karyawan" name="karyawan" class="form-control" autofocus>
+                                            <input type="text" id="karyawan" name="karyawan" class="form-control" required="required" autocomplete="off" autofocus>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -40,7 +40,7 @@
                                             <label for="id_divisi" class=" form-control-label">Divisi</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <select name="id_divisi" class="form-control selectpicker" data-live-search="true">
+                                            <select name="id_divisi" class="form-control selectpicker" required="required" autocomplete="off" data-live-search="true">
                                                 <option value="" hidden>- Pilih -</option>
                                                 <?php foreach ($divisi as $key => $value) : ?>
                                                     <option value="<?= $value->id_divisi ?>"><?= $value->divisi ?></option>
@@ -53,7 +53,7 @@
                                             <label for="id_jabatan" class=" form-control-label">Jabatan</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <select name="id_jabatan" class="form-control">
+                                            <select name="id_jabatan" class="form-control" required="required" autocomplete="off">
                                                 <option value="" hidden>- Pilih -</option>
                                                 <?php foreach ($jabatan as $key => $value) : ?>
                                                     <option value="<?= $value->id_jabatan ?>"><?= $value->jabatan ?></option>
@@ -63,10 +63,15 @@
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="status" class=" form-control-label">Status</label>
+                                            <label for="id_status" class=" form-control-label">Status</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="status" name="status" class="form-control">
+                                            <select type="text" id="id_status" name="id_status" class="form-control" autocomplete="off">
+                                                <option value="" hidden>- Pilih -</option>
+                                                <?php foreach ($status as $key => $value) : ?>
+                                                    <option value="<?= $value->id_status ?>"><?= $value->status ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -74,7 +79,7 @@
                                             <label for="ket" class=" form-control-label">Keterangan</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="text" id="ket" name="ket" class="form-control">
+                                            <input type="text" id="ket" name="ket" class="form-control" autocomplete="off">
                                         </div>
                                     </div>
                             </div>

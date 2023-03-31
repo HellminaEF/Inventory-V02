@@ -13,29 +13,42 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header bg-secondary text-white">
-                                <a type="button" class="btn btn-secondary btn-sm mr-3" href="/u_komplain"><i class="fas fa-reply"></i> Back</a>
-                                Buat <strong>Keluhan</strong>
+                                <a type="button" class="btn btn-secondary btn-sm mr-3" href="/u_history"><i class="fas fa-reply"></i> Back</a>
+                                Buat <strong>History</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="/komplain/valid_komplain" method="post" class="form-horizontal">
+                                <form action="/history/create" method="post" class="form-horizontal">
                                     <?= csrf_field(); ?>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="t_komplain" class=" form-control-label">Tanggal</label>
+                                            <label for="t_history" class=" form-control-label">tanggal</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <input type="date" id="t_komplain" name="t_komplain" class="form-control" required="required" autocomplete="off" autofocus>
+                                            <input type="date" id="t_history" name="t_history" class="form-control" required="required" autocomplete="off" autofocus>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="id_transaksi" class=" form-control-label">Barang</label>
+                                            <label for="id_barang" class=" form-control-label">Barang</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <select name="id_transaksi" class="form-control selectpicker" required="required" data-live-search="true" autocomplete="off">
+                                            <select name="id_barang" class="form-control selectpicker" required="required" data-live-search="true" autocomplete="off">
                                                 <option value="" hidden>- Pilih -</option>
-                                                <?php foreach ($trans as $key => $value) : ?>
-                                                    <option value="<?= $value->id_trans ?>"><?= $value->barang; ?> <?= $value->merk; ?></option>
+                                                <?php foreach ($barang as $key => $value) : ?>
+                                                    <option value="<?= $value->id_barang ?>"><?= $value->barang; ?> <?= $value->merk; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="id_karyawan" class=" form-control-label">Karyawan</label>
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <select name="id_karyawan" class="form-control selectpicker" required="required" data-live-search="true" autocomplete="off">
+                                                <option value="" hidden>- Pilih -</option>
+                                                <?php foreach ($karyawan as $key => $value) : ?>
+                                                    <option value="<?= $value->id_karyawan ?>"><?= $value->karyawan; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
@@ -45,14 +58,7 @@
                                             <label for="keterangan" class=" form-control-label">Keterangan</label>
                                         </div>
                                         <div class="form-group col-md-7">
-                                            <textarea class="form-control" rows="3" name="keterangan" id="keterangan" placeholder="sebutkan keluhan.." autocomplete="off"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group" hidden>
-                                        <div class="form-group col-md-7">
-                                            <select name="approval" class="form-control selectpicker" required="required" data-live-search="true" autocomplete="off">
-                                                <option value="Diproses" hidden>Diproses</option>
-                                            </select>
+                                            <textarea class="form-control" rows="3" name="keterangan" id="keterangan" placeholder="Keterangan.." autocomplete="off"></textarea>
                                         </div>
                                     </div>
                             </div>

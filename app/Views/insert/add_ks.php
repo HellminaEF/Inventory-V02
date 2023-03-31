@@ -31,7 +31,7 @@
                                         <label for="kondisi_sekarang" class="form-control-label">Kondisi Barang Sekarang</label>
                                     </div>
                                     <div class="form-group col-md-7">
-                                        <input type="text" id="kondisi_sekarang" name="kondisi_sekarang" class="form-control" required="required" autofocus>
+                                        <input type="text" id="kondisi_sekarang" name="kondisi_sekarang" class="form-control" required="required" autocomplete="off" autofocus>
                                     </div>
                                 </div>
                         </div>
