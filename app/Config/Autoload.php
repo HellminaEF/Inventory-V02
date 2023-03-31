@@ -4,6 +4,8 @@ namespace Config;
 
 use CodeIgniter\Config\AutoloadConfig;
 
+$autoload['libraries'] = array('database', 'auto_number');
+$autoload['model'] = array('BarangModel');
 /**
  * -------------------------------------------------------------------
  * AUTOLOADER CONFIGURATION
